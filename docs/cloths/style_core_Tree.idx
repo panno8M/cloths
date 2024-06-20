@@ -1,0 +1,8 @@
+nimTitle	style_core_Tree	cloths/style_core_Tree.html	module cloths/style_core_Tree		0
+nim	tbtSplt	cloths/style_core_Tree.html#tbtSplt	TreeBranchToken.tbtSplt		4
+nim	tbtEdge	cloths/style_core_Tree.html#tbtEdge	TreeBranchToken.tbtEdge		4
+nim	tbtLeaf	cloths/style_core_Tree.html#tbtLeaf	TreeBranchToken.tbtLeaf		4
+nim	tbtNone	cloths/style_core_Tree.html#tbtNone	TreeBranchToken.tbtNone		4
+nim	TreeBranchToken	cloths/style_core_Tree.html#TreeBranchToken	enum TreeBranchToken		4
+nim	TreeBranch	cloths/style_core_Tree.html#TreeBranch	type TreeBranch		9
+nim	Tree	cloths/style_core_Tree.html#Tree	type Tree		10

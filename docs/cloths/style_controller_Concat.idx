@@ -1,0 +1,4 @@
+nimTitle	style_controller_Concat	cloths/style_controller_Concat.html	module cloths/style_controller_Concat		0
+nim	Concat	cloths/style_controller_Concat.html#Concat	type Concat		3
+nim	concat	cloths/style_controller_Concat.html#concat,Style	proc concat(a: Style): Concat		5
+nim	`&`	cloths/style_controller_Concat.html#&.t,Style	template `&`(a: Style): Concat		6
