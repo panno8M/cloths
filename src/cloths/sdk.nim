@@ -54,35 +54,46 @@ proc apply*(cloth: Cloth): Data =
   if cloth.style.isNil: copy cloth.data
   else: cloth.style.apply(cloth.data)
 
+type Iterator* = object
+  queue: Deque[ptr Data]
+
+proc newIterator*(data: ptr Data): Iterator =
+  # if primary data is empty, queue.len will be 0.
+  if data.isString:
+    result.queue.addLast data
+  else:
+    for i in countdown(data.subitems.high, 0):
+      result.queue.addLast addr data.subitems[i].data
+
+proc next*(iter: var Iterator): ptr string =
+  if iter.queue.len == 0: return
+  let data = iter.queue.popLast
+  if data.isString:
+    return addr data.str
+  else:
+    for i in countdown(data.subitems.high, 0):
+      iter.queue.addLast addr data.subitems[i].data
+    iter.next
+
+
 iterator eachline*(data: Data): string =
-  var queue = @[addr data].toDeque
-  while queue.len != 0:
-    let data = queue.popLast
-    if data.isString:
-      yield data.str
-    else:
-      for i in countdown(data.subitems.high, 0):
-        queue.addLast addr data.subitems[i].data
+  var iter = newIterator(addr data)
+  while iter.queue.len != 0:
+    yield iter.next()[]
 
 iterator eachline*(data: var Data): var string =
-  var queue = @[addr data].toDeque
-  while queue.len != 0:
-    let data = queue.popLast
-    if data.isString:
-      yield data.str
-    else:
-      for i in countdown(data.subitems.high, 0):
-        queue.addLast addr data.subitems[i].data
+  var iter = newIterator(addr data)
+  while iter.queue.len != 0:
+    yield iter.next()[]
 
 iterator eachpair*(data: var Data): tuple[i_line: int; line: var string] =
   if data.isString:
     yield (0, data.str)
   else:
     var i_line: int
-    for subcloth in data.subitems.mitems:
-      for line in subcloth.data.eachline:
-        yield(i_line, line)
-        inc i_line
+    for line in data.eachline:
+      yield(i_line, line)
+      inc i_line
 
 template eachAppliedData*(data: Data; metatoken, datatoken, body): untyped =
   var `datatoken` {.inject.}: Data

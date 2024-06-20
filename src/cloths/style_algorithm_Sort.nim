@@ -1,24 +1,14 @@
 import ./sdk
 import std/algorithm
 
-proc getline*(a: Cloth; i: int): tuple[linelen: int; str: string] =
-  if a.data.isString:
-    return (1, a.data.str)
-
-  var diff: int
-  for subcloth in a.data.subitems:
-    (diff, result.str) = subcloth.getline(i - result.linelen)
-    result.linelen += diff
-    if i < result.linelen: return
-
 proc cmp*(a, b: Cloth): int =
-  var i: int
+  var iter_a = newIterator(addr a.data)
+  var iter_b = newIterator(addr b.data)
   while result == 0:
-    let (ia, a) = a.getline(i)
-    let (ib, b) = b.getline(i)
-    if ia != ib: return
-    result = cmp(a, b)
-    inc i
+    let ap = iter_a.next()
+    let bp = iter_b.next()
+    if nil in [ap, bp]: return
+    result = cmp(ap[], bp[])
 
 
 type Sort* = ref object of Style
