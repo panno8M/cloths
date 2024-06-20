@@ -1,0 +1,3 @@
+nimTitle	style_markdown_CheckBox	cloths/style_markdown_CheckBox.html	module cloths/style_markdown_CheckBox		0
+nim	CheckBox	cloths/style_markdown_CheckBox.html#CheckBox	type CheckBox		4
+nim	checkbox	cloths/style_markdown_CheckBox.html#checkbox_2	let checkbox		6

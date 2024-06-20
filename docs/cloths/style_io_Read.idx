@@ -1,0 +1,3 @@
+nimTitle	style_io_Read	cloths/style_io_Read.html	module cloths/style_io_Read		0
+nim	Read	cloths/style_io_Read.html#Read	type Read		3
+nim	read	cloths/style_io_Read.html#read,File,string	proc read(file: File; prompt: string = ""): Read		7

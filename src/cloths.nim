@@ -1,3 +1,6 @@
+## Usage
+## #####
+##
 ## Cloths provides the way to process and structure string easily.
 ##
 ## This library separate text into Style and Data; and represent text with combination
@@ -26,6 +29,9 @@ runnableExamples:
   #   3. baz
   # END LIST
 
+## weave macro
+## ###########
+##
 ## `weave` is a very useful macro to build a cloth.
 ##
 ## ```
@@ -81,7 +87,117 @@ runnableExamples:
 ##       str
 ##     "baz"
 ## ```
+
+## Style List
+## ##########
 ##
+## `Core <cloths/style_core.html>`_ (imported)
+## ===========================================
+##
+## `Indent <cloths/style_core_Indent.html>`_
+## -----------------------------------------
+##
+## Insert specified number of space in front of each line.
+##
+## `Join <cloths/style_core_Join.html>`_
+## -------------------------------------
+##
+## Connect each line with specified delimiter.
+##
+## `Margin <cloths/style_core_Margin.html>`_
+## -----------------------------------------
+##
+## Insert specified thickness of blank line between each line.
+##
+## `Order <cloths/style_core_Order.html>`_
+## ---------------------------------------
+##
+## | Insert specified text in front of each element.
+## | To specify text, pass function that takes number of lines and return text.
+##
+## `Prefix <cloths/style_core_Prefix.html>`_
+## -----------------------------------------
+##
+## Insert specified text in front of each line.
+##
+## `Text <cloths/style_core_Text.html>`_
+## -------------------------------------
+##
+## Connect each line with an space.
+##
+## `Tree <cloths/style_core_Tree.html>`_
+## -------------------------------------
+##
+## Insert directory-diagram signs in front of each element.
+##
+## `Underline <cloths/style_core_Underline.html>`_
+## -----------------------------------------------
+##
+## | Insert specified pattern of line under each element.
+## | If pattern is shorter than an element, it will be repeated.
+##
+## `Unorder <cloths/style_core_Unorder.html>`_
+## -------------------------------------------
+##
+## | Insert same specified text in front of each element.
+## | text is evaluated on instantiate it.
+##
+## `Controller <cloths/style_controller.html>`_ (imported)
+## =======================================================
+##
+## `Concat <cloths/style_controller_Concat.html>`_
+## -----------------------------------------------
+##
+## Concat whole elements to single data; then apply inner-Style to the data.
+##
+## `Merge <cloths/style_controller_Merge.html>`_
+## ---------------------------------------------
+##
+## Take two Styles and apply them in a chain.
+##
+## `Then <cloths/style_controller_Then.html>`_
+## -------------------------------------------
+##
+## Same as nested weaving.
+##
+## `Algorithm <cloths/style_algorithm.html>`_ (import required)
+## ============================================================
+##
+## `Sort <cloths/style_algorithm_Sort.html>`_
+## ------------------------------------------
+##
+## Sort elements. compare method is customizable.
+##
+## `IO <cloths/style_io.html>`_ (import required)
+## ==============================================
+##
+## `Read <cloths/style_io_Read.html>`_
+## -----------------------------------
+##
+## Read string from a File. stdin is also available.
+##
+## `Markdown <cloths/style_markdown.html>`_ (import required)
+## ==========================================================
+##
+## `Check Box <cloths/style_markdown_CheckBox.html>`_
+## --------------------------------------------------
+##
+## Insert "[[ ]] " or "[[x]] " in front of each element.
+##
+## `Ordered List <cloths/style_markdown_OrderedList.html>`_
+## --------------------------------------------------------
+##
+## Insert "1. ", "2. ", ... in front of each element.
+##
+## `Quote <cloths/style_markdown_Quote.html>`_
+## -------------------------------------------
+##
+## Insert "> " in front of each line.
+##
+## `Unordered List <cloths/style_markdown_UnorderedList.html>`_
+## ------------------------------------------------------------
+##
+## Insert "* " in front of each element.
 
 # SDK exportation #
 # =================
@@ -96,3 +212,8 @@ export sdk.cloth, sdk.`$`, sdk.add, sdk.weave, sdk.clothfy
 # =================
 import ./cloths/style_core; export style_core
 import ./cloths/style_controller; export style_controller
+
+when defined(docgen):
+  import ./cloths/style_algorithm
+  import ./cloths/style_io
+  import ./cloths/style_markdown

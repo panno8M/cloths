@@ -10,3 +10,6 @@ srcDir        = "src"
 # Dependencies
 
 requires "nim >= 2.0.0"
+
+task docgen, "generate HTML documentation":
+  exec "nim doc --project --index:on -o:docs -d:docgen src/cloths.nim"
