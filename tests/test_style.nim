@@ -36,3 +36,17 @@ when defined(styletest):
   import cloths/style_markdown_CheckBox
 
   style_markdown_CheckBox.styletest()
+
+  echo ""
+  echo "[algorithm Styles]"
+
+  import cloths/style_algorithm_Sort
+
+  style_algorithm_Sort.styletest()
+
+  echo ""
+  echo "[io Styles]"
+
+  import cloths/style_io_Read
+
+  style_io_Read.styletest()
