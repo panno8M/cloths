@@ -44,11 +44,13 @@ proc copy*(data: Data): Data =
   for subcloth in data.subitems:
     result.subitems.add copy subcloth
 proc copy*(cloth: Cloth): Cloth =
+  if cloth.isNil: return
   cloth_lowlevel(cloth.style, copy cloth.data)
 
 method apply*(style: Style; data: Data): Data {.base.} = copy data
 
 proc apply*(cloth: Cloth): Data =
+  if cloth.isNil: return
   if cloth.style.isNil: copy cloth.data
   else: cloth.style.apply(cloth.data)
 
@@ -147,7 +149,8 @@ proc cloth*(style: Style; subitems: varargs[Cloth]): Cloth =
   cloth_lowlevel(style, data @subitems)
 
 proc `$`*(cloth: Cloth): string =
-  cloth.style.apply(cloth.data).eachline.toseq.join("\n")
+  if cloth.isNil: return
+  cloth.apply.eachline.toseq.join("\n")
 
 func add*(cloth: Cloth; subitems: varargs[Cloth]) =
   cloth.data.subitems.add @subitems
@@ -157,7 +160,7 @@ proc weave_impl(instance, body: NimNode; chain: bool): NimNode =
   let c = gensym(nskLet, "cloth")
   result = newNimNode (if chain: nnkStmtListExpr else: nnkStmtList)
   result.add quote do:
-    let `c` = `instance`
+    let `c`: Cloth = `instance`
   for stmt in body:
     case stmt.kind
     of nnkIfStmt, nnkWhenStmt:
