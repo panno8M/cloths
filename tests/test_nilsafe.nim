@@ -5,14 +5,14 @@ import std/unittest
 
 suite"nil(Cloth) As Empty":
   test"stringify":
-    let test: Cloth = nil
+    var test: Cloth
     check $test == $test
     check $test == ""
   test"nil node":
     let test = weave orderedList:
       "aaa"
       "bbb"
-      nil
+      Cloth()
       "ccc"
     let expect = """1. aaa
 2. bbb

@@ -7,7 +7,8 @@ type Join* = ref object of Style
   delim*: string = ""
 
 method apply(style: Join; data: Data): Data =
-  if data.isString: return data
+  if unlikely(data.isNil): return
+  if data.isString: return copy data
 
   var str: seq[string]
 

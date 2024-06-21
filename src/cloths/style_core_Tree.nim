@@ -16,13 +16,14 @@ type
       of tbtNone: "   "
 
 method apply(style: Tree; data: Data): Data =
+  if unlikely(data.isNil): return
   let leaf = style.branch(tbtLeaf)
   if data.isString: return data(leaf & data.str)
   let
     splt = style.branch(tbtSplt)
     edge = style.branch(tbtEdge)
     none = style.branch(tbtNone)
-
+  new result
 
   data.eachAppliedData(meta, subdata):
     for i_line, line in subdata.eachpair:

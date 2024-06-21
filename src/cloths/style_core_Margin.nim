@@ -4,18 +4,22 @@ type Margin* = ref object of Style
   thickness*: Natural = 1
 
 proc margin(thickness: Natural): Cloth =
-  var data: Data
+  let data = new Data
   data.subitems = newSeqOfCap[Cloth](thickness)
-  for _ in 1..thickness:
-    data.subitems.add rendered_cloth""
-  rendered_cloth data
+  weave rendered:
+    for _ in 1..thickness:
+      rendered_cloth""
 
 method apply(style: Margin; data: Data): Data =
-  if data.isString: return data
+  if unlikely(data.isNil): return
+  if data.isString: return copy data
+  new  result
+  let margin = margin(style.thickness)
+
   data.eachAppliedData(meta, subdata):
     result.subitems.add rendered_cloth subdata
     if not meta.isLastItem:
-      result.subitems.add margin(style.thickness)
+      result.subitems.add margin
 
 styletest:
   suite"Margin":

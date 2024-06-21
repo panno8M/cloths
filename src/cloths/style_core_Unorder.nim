@@ -4,7 +4,9 @@ type Unorder* = ref object of Style
   entry*: string = "* "
 
 method apply(style: Unorder; data: Data): Data =
+  if unlikely(data.isNil): return
   if data.isString: return data(style.entry & data.str)
+  new result
   let indent = sdk.whitespace(style.entry.len)
 
   data.eachAppliedData(meta, subdata):

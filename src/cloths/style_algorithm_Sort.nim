@@ -2,8 +2,8 @@ import ./sdk
 import std/algorithm
 
 proc cmp*(a, b: Cloth): int =
-  var iter_a = newIterator(addr a.data)
-  var iter_b = newIterator(addr b.data)
+  var iter_a = newIterator(a.data)
+  var iter_b = newIterator(b.data)
   while result == 0:
     let ap = iter_a.next()
     let bp = iter_b.next()
@@ -18,7 +18,7 @@ let sort* = Sort(cmp: cmp)
 
 method apply(style: Sort; data: Data): Data =
   result = multiline.apply(data)
-  if data.isString: return
+  if unlikely(data.isNil) or data.isString: return
   result.subitems.sort(style.cmp)
 
 styletest:

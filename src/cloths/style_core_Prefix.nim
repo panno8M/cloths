@@ -4,7 +4,9 @@ type Prefix* = ref object of Style
   prefix*: string = "# "
 
 method apply(style: Prefix; data: Data): Data =
+  if unlikely(data.isNil): return
   if data.isString: return data(style.prefix & data.str)
+  new result
 
   data.eachAppliedData(meta, subdata):
     for line in subdata.eachline:

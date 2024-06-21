@@ -17,6 +17,7 @@ proc maxwidth(appliedData: Data): int =
     result = max(result, subcloth.data.maxwidth)
 
 proc underline(appliedData: Data; pattern: string): Data =
+  new result
   result.subitems.add rendered_cloth appliedData
   result.subitems.add rendered_cloth makeline(appliedData.maxwidth, pattern)
 #   if appliedData.isString:
@@ -27,8 +28,10 @@ proc underline(appliedData: Data; pattern: string): Data =
 #       result.subitems.add rendered_cloth underline(subcloth, pattern)
 
 method apply(style: Underline; data: Data): Data =
+  if unlikely(data.isNil): return
   if data.isString:
     return underline(data, style.pattern)
+  new result
 
   data.eachAppliedData(meta, subdata):
     result.subitems.add rendered_cloth underline(subdata, style.pattern)

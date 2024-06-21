@@ -12,15 +12,15 @@ import std/macros
 
 type
   Style* {.requiresInit.} = ref object of RootObj
-  Data* = object
+  Data* = ref object
     case isString*: bool
     of true:
       str*: string
     of false:
       subitems*: seq[Cloth]
-  Cloth* = ref object
-    style*: Style
-    data*: Data
+  Cloth* = object
+    style*: Style = nil
+    data*: Data = nil
 
 
 proc data*(str: string): Data = Data(isString: true, str: str)
@@ -29,41 +29,44 @@ proc data*(subitems: varargs[Cloth]): Data = Data(isString: false, subitems: @su
 proc cloth_lowlevel*(style: Style; data: Data): Cloth = Cloth(style: style, data: data)
 proc cloth_lowlevel*(style: Style; str: string): Cloth = cloth_lowlevel(style, data(str))
 
-proc rendered_cloth*(data: Data): Cloth = cloth_lowlevel(nil, data)
-proc rendered_cloth*(str: string): Cloth = cloth_lowlevel(nil, data str)
+const rendered*: Style = nil
+proc rendered_cloth*(data: Data): Cloth = cloth_lowlevel(rendered, data)
+proc rendered_cloth*(str: string): Cloth = cloth_lowlevel(rendered, data str)
 
 
 proc len*(data: Data): int =
-  if data.isString: 1
+  if unlikely(data.isNil): 0
+  elif data.isString: 1
   else:
     data.subitems.len
 
 proc copy*(cloth: Cloth): Cloth
 proc copy*(data: Data): Data =
-  if data.isString: return data
+  if unlikely(data.isNil): return
+  if data.isString: return data data.str
+  new result
   for subcloth in data.subitems:
     result.subitems.add copy subcloth
 proc copy*(cloth: Cloth): Cloth =
-  if cloth.isNil: return
   cloth_lowlevel(cloth.style, copy cloth.data)
 
 method apply*(style: Style; data: Data): Data {.base.} = copy data
 
 proc apply*(cloth: Cloth): Data =
-  if cloth.isNil: return
   if cloth.style.isNil: copy cloth.data
   else: cloth.style.apply(cloth.data)
 
 type Iterator* = object
-  queue: Deque[ptr Data]
+  queue: Deque[Data]
 
-proc newIterator*(data: ptr Data): Iterator =
+proc newIterator*(data: Data): Iterator =
   # if primary data is empty, queue.len will be 0.
+  if unlikely(data.isNil): return
   if data.isString:
     result.queue.addLast data
   else:
     for i in countdown(data.subitems.high, 0):
-      result.queue.addLast addr data.subitems[i].data
+      result.queue.addLast data.subitems[i].data
 
 proc next*(iter: var Iterator): ptr string =
   if iter.queue.len == 0: return
@@ -72,17 +75,11 @@ proc next*(iter: var Iterator): ptr string =
     return addr data.str
   else:
     for i in countdown(data.subitems.high, 0):
-      iter.queue.addLast addr data.subitems[i].data
+      iter.queue.addLast data.subitems[i].data
     iter.next
 
-
-iterator eachline*(data: Data): string =
-  var iter = newIterator(addr data)
-  while iter.queue.len != 0:
-    yield iter.next()[]
-
-iterator eachline*(data: var Data): var string =
-  var iter = newIterator(addr data)
+iterator eachline*(data: Data): var string =
+  var iter = newIterator(data)
   while iter.queue.len != 0:
     yield iter.next()[]
 
@@ -105,7 +102,7 @@ template eachAppliedData*(data: Data; metatoken, datatoken, body): untyped =
 
   for subcloth in data.subitems:
     next = apply subcloth
-    if next.len == 0: continue
+    if next.isNil or next.len == 0: continue
 
     if likely(`metatoken`.index != -1):
       body
@@ -138,7 +135,8 @@ type MultiLine* = Plain
 let multiline* = Multiline()
 
 method apply(style: Plain; data: Data): Data =
-  if data.isString: return data
+  if data.isString: return copy data
+  new result
   for subcloth in data.subitems:
     let applied = apply(subcloth)
     if applied.len != 0:
@@ -160,7 +158,6 @@ proc cloth*(style: Style; subitems: varargs[Cloth]): Cloth =
   cloth_lowlevel(style, data @subitems)
 
 proc `$`*(cloth: Cloth): string =
-  if cloth.isNil: return
   cloth.apply.eachline.toseq.join("\n")
 
 func add*(cloth: Cloth; subitems: varargs[Cloth]) =
@@ -202,7 +199,7 @@ macro weave*(cloth: Cloth; body): untyped =
   weave_impl(cloth, body, false)
 
 converter clothfy*(text: string): Cloth {.noSideEffect.} =
-  var data: Data
+  let data = new Data
   for line in text.splitLines():
     data.subitems.add rendered_cloth(line)
   rendered_cloth data

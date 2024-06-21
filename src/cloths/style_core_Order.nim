@@ -22,7 +22,9 @@ template orderIdx*(body): Order =
   Order(entry: proc(idx {.inject.}: Positive): string = `body`)
 
 method apply(style: Order; data: Data): Data =
+  if unlikely(data.isNil): return
   if data.isString: return data(style.entry(1) & data.str)
+  new result
 
   data.eachAppliedData(meta, subdata):
     let entry = style.entry(meta.index.succ)
