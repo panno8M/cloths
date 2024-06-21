@@ -51,11 +51,11 @@
   <details open>
     <summary><a class="reference reference-toplevel" href="#7" id="57">Types</a></summary>
     <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#Cloth" title="Cloth = ref object
-  style*: Style
-  data*: Data">Cloth</a></li>
+      <li><a class="reference" href="#Cloth" title="Cloth = object
+  style*: Style = nil
+  data*: Data = nil">Cloth</a></li>
 <li><a class="reference" href="#Constant" title="Constant = ref object of Style">Constant</a></li>
-<li><a class="reference" href="#Data" title="Data = object
+<li><a class="reference" href="#Data" title="Data = ref object
   case isString*: bool
   of true:
       str*: string
@@ -64,9 +64,10 @@
       subitems*: seq[Cloth]">Data</a></li>
 <li><a class="reference" href="#Empty" title="Empty = ref object of Style">Empty</a></li>
 <li><a class="reference" href="#Ignore" title="Ignore = Empty">Ignore</a></li>
+<li><a class="reference" href="#Iterator" title="Iterator = object">Iterator</a></li>
 <li><a class="reference" href="#MultiLine" title="MultiLine = Plain">MultiLine</a></li>
 <li><a class="reference" href="#Plain" title="Plain = ref object of Style">Plain</a></li>
-<li><a class="reference" href="#Style" title="Style {.requiresInit.} = ref object of RootObj">Style</a></li>
+<li><a class="reference" href="#Style" title="Style = ref object of RootObj">Style</a></li>
 
     </ul>
   </details>
@@ -80,6 +81,15 @@
 <li><a class="reference" href="#ignore_2" title="ignore = Ignore()">ignore</a></li>
 <li><a class="reference" href="#multiline_2" title="multiline = MultiLine()">multiline</a></li>
 <li><a class="reference" href="#plain_2" title="plain = Plain()">plain</a></li>
+
+    </ul>
+  </details>
+</li>
+<li>
+  <details open>
+    <summary><a class="reference reference-toplevel" href="#10" id="60">Consts</a></summary>
+    <ul class="simple simple-toc-section">
+      <li><a class="reference" href="#rendered" title="rendered: Style = nil">rendered</a></li>
 
     </ul>
   </details>
@@ -123,6 +133,14 @@
   <li><a class="reference" href="#len%2CData" title="len(data: Data): int">len(data: Data): int</a></li>
 
 </ul>
+<ul class="simple nested-toc-section">newIterator
+  <li><a class="reference" href="#newIterator%2CData" title="newIterator(data: Data): Iterator">newIterator(data: Data): Iterator</a></li>
+
+</ul>
+<ul class="simple nested-toc-section">next
+  <li><a class="reference" href="#next%2CIterator" title="next(iter: var Iterator): ptr string">next(iter: var Iterator): ptr string</a></li>
+
+</ul>
 <ul class="simple nested-toc-section">rendered_cloth
   <li><a class="reference" href="#rendered_cloth%2CData" title="rendered_cloth(data: Data): Cloth">rendered_cloth(data: Data): Cloth</a></li>
 <li><a class="reference" href="#rendered_cloth%2Cstring" title="rendered_cloth(str: string): Cloth">rendered_cloth(str: string): Cloth</a></li>
@@ -153,8 +171,7 @@
     <summary><a class="reference reference-toplevel" href="#15" id="65">Iterators</a></summary>
     <ul class="simple simple-toc-section">
       <ul class="simple nested-toc-section">eachline
-  <li><a class="reference" href="#eachline.i%2CData" title="eachline(data: Data): string">eachline(data: Data): string</a></li>
-<li><a class="reference" href="#eachline.i%2CData_2" title="eachline(data: var Data): var string">eachline(data: var Data): var string</a></li>
+  <li><a class="reference" href="#eachline.i%2CData" title="eachline(data: Data): var string">eachline(data: Data): var string</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">eachpair
@@ -219,9 +236,9 @@
   <h1><a class="toc-backref" href="#7">Types</a></h1>
   <dl class="item">
     <div id="Cloth">
-  <dt><pre><a href="sdk.html#Cloth"><span class="Identifier">Cloth</span></a> <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span>
-  <span class="Identifier">style</span><span class="Operator">*</span><span class="Other">:</span> <a href="sdk.html#Style"><span class="Identifier">Style</span></a>
-  <span class="Identifier">data</span><span class="Operator">*</span><span class="Other">:</span> <a href="sdk.html#Data"><span class="Identifier">Data</span></a>
+  <dt><pre><a href="sdk.html#Cloth"><span class="Identifier">Cloth</span></a> <span class="Other">=</span> <span class="Keyword">object</span>
+  <span class="Identifier">style</span><span class="Operator">*</span><span class="Other">:</span> <a href="sdk.html#Style"><span class="Identifier">Style</span></a> <span class="Other">=</span> <span class="Keyword">nil</span>
+  <span class="Identifier">data</span><span class="Operator">*</span><span class="Other">:</span> <a href="sdk.html#Data"><span class="Identifier">Data</span></a> <span class="Other">=</span> <span class="Keyword">nil</span>
 </pre></dt>
   <dd>
     
@@ -239,7 +256,7 @@
   </dd>
 </div>
 <div id="Data">
-  <dt><pre><a href="sdk.html#Data"><span class="Identifier">Data</span></a> <span class="Other">=</span> <span class="Keyword">object</span>
+  <dt><pre><a href="sdk.html#Data"><span class="Identifier">Data</span></a> <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span>
   <span class="Keyword">case</span> <span class="Identifier">isString</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">bool</span>
   <span class="Keyword">of</span> <span class="Identifier">true</span><span class="Other">:</span>
       <span class="Identifier">str</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">string</span>
@@ -270,6 +287,15 @@
     
   </dd>
 </div>
+<div id="Iterator">
+  <dt><pre><a href="sdk.html#Iterator"><span class="Identifier">Iterator</span></a> <span class="Other">=</span> <span class="Keyword">object</span>
+  </pre></dt>
+  <dd>
+    
+    
+    
+  </dd>
+</div>
 <div id="MultiLine">
   <dt><pre><a href="sdk.html#MultiLine"><span class="Identifier">MultiLine</span></a> <span class="Other">=</span> <a href="sdk.html#Plain"><span class="Identifier">Plain</span></a></pre></dt>
   <dd>
@@ -287,7 +313,7 @@
   </dd>
 </div>
 <div id="Style">
-  <dt><pre><a href="sdk.html#Style"><span class="Identifier">Style</span></a> {.<span class="Identifier">requiresInit</span>.} <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">RootObj</span></pre></dt>
+  <dt><pre><a href="sdk.html#Style"><span class="Identifier">Style</span></a> <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">RootObj</span></pre></dt>
   <dd>
     
     
@@ -334,6 +360,20 @@
 </div>
 <div id="plain_2">
   <dt><pre><a href="sdk.html#plain"><span class="Identifier">plain</span></a> <span class="Other">=</span> <a href="sdk.html#Plain"><span class="Identifier">Plain</span></a><span class="Other">(</span><span class="Other">)</span></pre></dt>
+  <dd>
+    
+    
+    
+  </dd>
+</div>
+
+  </dl>
+</div>
+<div class="section" id="10">
+  <h1><a class="toc-backref" href="#10">Consts</a></h1>
+  <dl class="item">
+    <div id="rendered">
+  <dt><pre><a href="sdk.html#rendered"><span class="Identifier">rendered</span></a><span class="Other">:</span> <a href="sdk.html#Style"><span class="Identifier">Style</span></a> <span class="Other">=</span> <span class="Keyword">nil</span></pre></dt>
   <dd>
     
     
@@ -466,6 +506,28 @@
 </div>
 
 </div>
+<div id="newIterator-procs-all">
+  <div id="newIterator,Data">
+  <dt><pre><span class="Keyword">proc</span> <a href="#newIterator%2CData"><span class="Identifier">newIterator</span></a><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <a href="sdk.html#Data"><span class="Identifier">Data</span></a><span class="Other">)</span><span class="Other">:</span> <a href="sdk.html#Iterator"><span class="Identifier">Iterator</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    
+    
+  </dd>
+</div>
+
+</div>
+<div id="next-procs-all">
+  <div id="next,Iterator">
+  <dt><pre><span class="Keyword">proc</span> <a href="#next%2CIterator"><span class="Identifier">next</span></a><span class="Other">(</span><span class="Identifier">iter</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="sdk.html#Iterator"><span class="Identifier">Iterator</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">string</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    
+    
+  </dd>
+</div>
+
+</div>
 <div id="rendered_cloth-procs-all">
   <div id="rendered_cloth,Data">
   <dt><pre><span class="Keyword">proc</span> <a href="#rendered_cloth%2CData"><span class="Identifier">rendered_cloth</span></a><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <a href="sdk.html#Data"><span class="Identifier">Data</span></a><span class="Other">)</span><span class="Other">:</span> <a href="sdk.html#Cloth"><span class="Identifier">Cloth</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
@@ -522,16 +584,7 @@
   <dl class="item">
     <div id="eachline-iterators-all">
   <div id="eachline.i,Data">
-  <dt><pre><span class="Keyword">iterator</span> <a href="#eachline.i%2CData"><span class="Identifier">eachline</span></a><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <a href="sdk.html#Data"><span class="Identifier">Data</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-<div id="eachline.i,Data_2">
-  <dt><pre><span class="Keyword">iterator</span> <a href="#eachline.i%2CData_2"><span class="Identifier">eachline</span></a><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="sdk.html#Data"><span class="Identifier">Data</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">string</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dt><pre><span class="Keyword">iterator</span> <a href="#eachline.i%2CData"><span class="Identifier">eachline</span></a><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <a href="sdk.html#Data"><span class="Identifier">Data</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">string</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
     
@@ -633,7 +686,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2024-06-20 04:30:21 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2024-06-21 08:05:08 UTC</small>
       </div>
     </div>
   </div>
