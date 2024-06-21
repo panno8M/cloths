@@ -11,7 +11,7 @@ import std/macros
 # ==============
 
 type
-  Style* {.requiresInit.} = ref object of RootObj
+  Style* = ref object of RootObj
   Data* = ref object
     case isString*: bool
     of true:
