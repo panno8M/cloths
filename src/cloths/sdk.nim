@@ -3,7 +3,9 @@ import std/sequtils
 import std/deques
 import std/macros
 
-## Cloths' Development Kit
+## Cloths' Style Development Kit
+## #############################
+##
 ## This provides internal functionalities to develop custom Style.
 ## See built-in styles to know how to use each functionalities.
 

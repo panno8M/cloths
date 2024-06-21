@@ -1,0 +1,4 @@
+nimTitle	Sort	cloths/styles/algorithm/Sort.html	module cloths/styles/algorithm/Sort		0
+nim	cmp	cloths/styles/algorithm/Sort.html#cmp,Cloth,Cloth	proc cmp(a, b: Cloth): int		4
+nim	Sort	cloths/styles/algorithm/Sort.html#Sort	type Sort		14
+nim	sort	cloths/styles/algorithm/Sort.html#sort_2	let sort		17

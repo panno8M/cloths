@@ -1,0 +1,4 @@
+nimTitle	Then	cloths/styles/controller/Then.html	module cloths/styles/controller/Then		0
+nim	Then	cloths/styles/controller/Then.html#Then	type Then		3
+nim	then	cloths/styles/controller/Then.html#then,Style,Style	proc then(a, b: Style): Then		5
+nim	`>>`	cloths/styles/controller/Then.html#>>.t,Style,Style	template `>>`(a, b: Style): Then		6

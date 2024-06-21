@@ -1,0 +1,4 @@
+nimTitle	Merge	cloths/styles/controller/Merge.html	module cloths/styles/controller/Merge		0
+nim	Merge	cloths/styles/controller/Merge.html#Merge	type Merge		3
+nim	merge	cloths/styles/controller/Merge.html#merge,Style,Style	proc merge(a, b: Style): Merge		5
+nim	`&`	cloths/styles/controller/Merge.html#&.t,Style,Style	template `&`(a, b: Style): Merge		6

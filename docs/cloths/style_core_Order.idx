@@ -1,5 +1,0 @@
-nimTitle	style_core_Order	cloths/style_core_Order.html	module cloths/style_core_Order		0
-nim	OrderEntry	cloths/style_core_Order.html#OrderEntry	type OrderEntry		5
-nim	Order	cloths/style_core_Order.html#Order	type Order		6
-nim	roman	cloths/style_core_Order.html#roman,Positive	proc roman(num: Positive): string		9
-nim	orderIdx	cloths/style_core_Order.html#orderIdx.t	template orderIdx(body): Order		21

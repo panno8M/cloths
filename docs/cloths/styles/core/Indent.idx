@@ -1,0 +1,4 @@
+nimTitle	Indent	cloths/styles/core/Indent.html	module cloths/styles/core/Indent		0
+nim	Indent	cloths/styles/core/Indent.html#Indent	type Indent		4
+nim	indent	cloths/styles/core/Indent.html#indent,Natural	proc indent(level: Natural): Indent		6
+nim	indent2	cloths/styles/core/Indent.html#indent2	let indent2		7

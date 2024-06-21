@@ -1,5 +1,5 @@
 import cloths
-import cloths/style_markdown
+import cloths/styles/markdown
 
 import std/unittest
 

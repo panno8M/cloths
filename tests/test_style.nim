@@ -8,45 +8,45 @@ when defined(styletest):
   echo "[Core Styles]"
 
   import cloths/sdk
-  import cloths/style_core_Unorder
-  import cloths/style_core_Order
-  import cloths/style_core_Prefix
-  import cloths/style_core_Underline
-  import cloths/style_core_Margin
-  import cloths/style_core_Tree
+  import cloths/styles/core/Unorder
+  import cloths/styles/core/Order
+  import cloths/styles/core/Prefix
+  import cloths/styles/core/Underline
+  import cloths/styles/core/Margin
+  import cloths/styles/core/Tree
 
   sdk.styletest()
-  style_core_Unorder.styletest()
-  style_core_Order.styletest()
-  style_core_Prefix.styletest()
-  style_core_Underline.styletest()
-  style_core_Margin.styletest()
-  style_core_Tree.styletest()
+  Unorder.styletest()
+  Order.styletest()
+  Prefix.styletest()
+  Underline.styletest()
+  Margin.styletest()
+  Tree.styletest()
 
   echo ""
   echo "[Core Styles - Applications]"
 
-  import cloths/style_core_Indent
+  import cloths/styles/core/Indent
 
-  style_core_Indent.styletest()
+  Indent.styletest()
 
   echo ""
   echo "[Markdown Styles]"
 
-  import cloths/style_markdown_CheckBox
+  import cloths/styles/markdown/CheckBox
 
-  style_markdown_CheckBox.styletest()
+  CheckBox.styletest()
 
   echo ""
   echo "[algorithm Styles]"
 
-  import cloths/style_algorithm_Sort
+  import cloths/styles/algorithm/Sort
 
-  style_algorithm_Sort.styletest()
+  Sort.styletest()
 
   echo ""
   echo "[io Styles]"
 
-  import cloths/style_io_Read
+  import cloths/styles/io/Read
 
-  style_io_Read.styletest()
+  Read.styletest()
