@@ -4,8 +4,6 @@ type Margin* = ref object of Style
   thickness*: Natural = 1
 
 proc margin(thickness: Natural): Cloth =
-  let data = new Data
-  data.subitems = newSeqOfCap[Cloth](thickness)
   weave rendered:
     for _ in 1..thickness:
       rendered_cloth""
