@@ -16,7 +16,7 @@ method apply(style: Unorder; data: Data): Data =
         if i_line == 0: style.entry & line
         else:           indent & line
 
-    result.subitems.add rendered_cloth subdata
+    result.subitems.add cloth subdata
 
 styletest:
   import cloths/needle

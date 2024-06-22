@@ -9,11 +9,11 @@ method apply(style: Multiline; data: Data): Data =
   for subcloth in data.subitems:
     let applied = apply(subcloth)
     if applied.len != 0:
-      result.subitems.add rendered_cloth applied
+      result.subitems.add cloth applied
 
 styletest:
   import cloths/needle
-  import Empty, Constant
+  import Empty
   suite"Multiline":
     test"simple":
       let test = weave multiline:

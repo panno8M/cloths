@@ -99,11 +99,6 @@ runnableExamples:
 ## `Core <cloths/styles/core.html>`_ (imported)
 ## ============================================
 ##
-## `Constant <cloths/styles/core/Constant.html>`_
-## ----------------------------------------------
-##
-## Ignore styles under the style.
-##
 ## `Empty <cloths/styles/core/Empty.html>`_
 ## ----------------------------------------
 ##

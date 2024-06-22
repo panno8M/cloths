@@ -35,11 +35,11 @@ method apply(style: Tree; data: Data): Data =
           if i_line == 0: splt
           else:           edge
       line = token & line
-    result.subitems.add rendered_cloth subdata
+    result.subitems.add cloth subdata
 
 styletest:
   import cloths/needle
-  import Multiline, Constant, Empty
+  import Multiline, Empty
   suite"Tree":
     test"single":
       let test = weave Tree():

@@ -12,7 +12,7 @@ method apply(style: Prefix; data: Data): Data =
     for line in subdata.eachline:
       line = style.prefix & line
 
-    result.subitems.add rendered_cloth subdata
+    result.subitems.add cloth subdata
 
 styletest:
   import cloths/needle

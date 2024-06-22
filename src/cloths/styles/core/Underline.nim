@@ -18,14 +18,14 @@ proc maxwidth(appliedData: Data): int =
 
 proc underline(appliedData: Data; pattern: string): Data =
   new result
-  result.subitems.add rendered_cloth appliedData
-  result.subitems.add rendered_cloth makeline(appliedData.maxwidth, pattern)
+  result.subitems.add cloth appliedData
+  result.subitems.add cloth makeline(appliedData.maxwidth, pattern)
 #   if appliedData.isString:
-#     result.subitems.add rendered_cloth data appliedData.str
-#     result.subitems.add rendered_cloth data makeline(appliedData.str.len, pattern)
+#     result.subitems.add cloth data appliedData.str
+#     result.subitems.add cloth data makeline(appliedData.str.len, pattern)
 #   else:
 #     for subcloth in appliedData.subitems:
-#       result.subitems.add rendered_cloth underline(subcloth, pattern)
+#       result.subitems.add cloth underline(subcloth, pattern)
 
 method apply(style: Underline; data: Data): Data =
   if unlikely(data.isNil): return
@@ -34,11 +34,10 @@ method apply(style: Underline; data: Data): Data =
   new result
 
   data.eachAppliedData(meta, subdata):
-    result.subitems.add rendered_cloth underline(subdata, style.pattern)
+    result.subitems.add cloth underline(subdata, style.pattern)
 
 styletest:
   import cloths/needle
-  import Constant
   suite"Underline":
     test"simple":
       let test = weave Underline():

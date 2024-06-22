@@ -1,6 +1,5 @@
 # Basics #
 # ========
-import core/Constant; export Constant
 import core/Empty; export Empty
 import core/Join; export Join
 import core/Margin; export Margin

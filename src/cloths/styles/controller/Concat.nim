@@ -13,7 +13,7 @@ method apply(style: Concat; data: Data): Data =
     new result
     data.eachAppliedData(meta, subdata):
       if subdata.isString:
-        result.subitems.add rendered_cloth subdata
+        result.subitems.add cloth subdata
       else:
         result.subitems.add subdata.subitems
   style.a.apply result

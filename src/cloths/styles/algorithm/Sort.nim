@@ -24,7 +24,7 @@ method apply(style: Sort; data: Data): Data =
 
 styletest:
   import cloths/needle
-  import cloths/styles/core/[Constant, Empty]
+  import cloths/styles/core/Empty
   suite"Sort":
     test"simple":
       let test = weave sort:

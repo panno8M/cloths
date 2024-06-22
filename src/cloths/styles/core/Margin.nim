@@ -5,7 +5,7 @@ type Margin* = ref object of Style
   thickness*: Natural = 1
 
 proc margin(thickness: Natural): Cloth =
-  rendered_cloth data rendered_cloth"".repeat(thickness)
+  cloth data cloth"".repeat(thickness)
 
 method apply(style: Margin; data: Data): Data =
   if unlikely(data.isNil): return
@@ -14,13 +14,13 @@ method apply(style: Margin; data: Data): Data =
   let margin = margin(style.thickness)
 
   data.eachAppliedData(meta, subdata):
-    result.subitems.add rendered_cloth subdata
+    result.subitems.add cloth subdata
     if not meta.isLastItem:
       result.subitems.add margin
 
 styletest:
   import cloths/needle
-  import Constant, Empty
+  import Empty
   suite"Margin":
     test"single":
       let test = weave Margin(thickness: 1):

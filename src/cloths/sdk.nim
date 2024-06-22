@@ -31,9 +31,9 @@ proc data*(subitems: varargs[Cloth]): Data = Data(isString: false, subitems: @su
 proc cloth_lowlevel*(style: Style; data: Data): Cloth = Cloth(style: style, data: data)
 proc cloth_lowlevel*(style: Style; str: string): Cloth = cloth_lowlevel(style, data(str))
 
-const rendered*: Style = nil
-proc rendered_cloth*(data: Data): Cloth = cloth_lowlevel(rendered, data)
-proc rendered_cloth*(str: string): Cloth = cloth_lowlevel(rendered, data str)
+const constant*: Style = nil
+proc cloth*(data: Data): Cloth = cloth_lowlevel(constant, data)
+proc cloth*(str: string): Cloth = cloth_lowlevel(constant, data str)
 
 
 proc len*(data: Data): int =

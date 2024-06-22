@@ -49,5 +49,5 @@ proc weave_impl(instance, body: NimNode; chain: bool): NimNode =
 converter clothfy*(text: string): Cloth {.noSideEffect.} =
   let data = new Data
   for line in text.splitLines():
-    data.subitems.add rendered_cloth(line)
-  rendered_cloth data
+    data.subitems.add cloth(line)
+  cloth data

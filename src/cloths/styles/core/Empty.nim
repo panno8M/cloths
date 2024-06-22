@@ -7,7 +7,6 @@ method apply(style: Empty; data: Data): Data = discard
 
 styletest:
   import cloths/needle
-  import Constant
   suite"Empty":
     test"simple":
       let test = weave empty:
