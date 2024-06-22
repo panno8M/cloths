@@ -9,7 +9,7 @@ proc margin(thickness: Natural): Cloth =
 
 method apply(style: Margin; data: Data): Data =
   if unlikely(data.isNil): return
-  if data.isString: return copy data
+  if data.isString: return data
   new  result
   let margin = margin(style.thickness)
 

@@ -42,20 +42,10 @@ proc len*(data: Data): int =
   else:
     data.subitems.len
 
-proc copy*(cloth: Cloth): Cloth
-proc copy*(data: Data): Data =
-  if unlikely(data.isNil): return
-  if data.isString: return data data.str
-  new result
-  for subcloth in data.subitems:
-    result.subitems.add copy subcloth
-proc copy*(cloth: Cloth): Cloth =
-  cloth_lowlevel(cloth.style, copy cloth.data)
-
 method apply*(style: Style; data: Data): Data {.base.} = (discard)
 
 proc apply*(cloth: Cloth): Data =
-  if cloth.style.isNil: copy cloth.data
+  if cloth.style == constant: cloth.data
   else: cloth.style.apply(cloth.data)
 
 type Iterator* = object

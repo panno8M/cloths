@@ -4,7 +4,7 @@ type Multiline* = ref object of Style
 let multiline* = Multiline()
 
 method apply(style: Multiline; data: Data): Data =
-  if data.isString: return copy data
+  if data.isString: return data
   new result
   for subcloth in data.subitems:
     let applied = apply(subcloth)

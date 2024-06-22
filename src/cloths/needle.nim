@@ -3,12 +3,21 @@ import std/sequtils
 import std/macros
 import sdk
 
+proc deepcopy*(cloth: Cloth): Cloth
+proc deepcopy(data: Data): Data =
+  if unlikely(data.isNil): return
+  if data.isString: return data data.str
+  new result
+  for subcloth in data.subitems:
+    result.subitems.add deepcopy subcloth
+proc deepcopy*(cloth: Cloth): Cloth =
+  cloth_lowlevel(cloth.style, deepcopy cloth.data)
 
 proc cloth*(style: Style; subitems: varargs[Cloth]): Cloth =
   cloth_lowlevel(style, data @subitems)
 
 proc `$`*(cloth: Cloth): string =
-  cloth.apply.eachline.toseq.join("\n")
+  cloth.deepcopy.apply.eachline.toseq.join("\n")
 
 func add*(cloth: Cloth; subitems: varargs[Cloth]) =
   cloth.data.subitems.add @subitems
