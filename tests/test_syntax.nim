@@ -50,20 +50,23 @@ pqr"""
       weave text:
         for i, ch in ["a", "b", "c"]:
           "("
-          block:
-            let str = $i & " : " & ch
-            str
+          let str = $i & " : " & ch
+          str
           ")"
       weave text:
         while idx < 3:
-          block:
-            let i = idx
-            inc idx
-            $i
+          let i = idx
+          $i
+          inc idx
+      weave text:
+        for ch in ["a", "b", "c"]:
+          for i in 1..3:
+            ch & $i
 
     let expect = """if true
 when true
 ( 0 : a ) ( 1 : b ) ( 2 : c )
-0 1 2"""
+0 1 2
+a1 a2 a3 b1 b2 b3 c1 c2 c3"""
     check $cloth == $cloth
     check $cloth == expect

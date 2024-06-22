@@ -162,11 +162,21 @@ proc cloth*(style: Style; subitems: varargs[Cloth]): Cloth =
 proc `$`*(cloth: Cloth): string =
   cloth.apply.eachline.toseq.join("\n")
 
+template add(cloth: Cloth; args: varargs[untyped]): untyped = args
 func add*(cloth: Cloth; subitems: varargs[Cloth]) =
   cloth.data.subitems.add @subitems
 
+proc weave_impl(instance, body: NimNode; chain: bool): NimNode
+
+macro weave*(style: Style; body): untyped =
+  weave_impl(bindsym"cloth".newCall(style), body, true)
+
+macro weave*(cloth: Cloth; body): untyped =
+  weave_impl(cloth, body, false)
+
 proc weave_impl(instance, body: NimNode; chain: bool): NimNode =
   let add = bindsym"add"
+  let weave = bindsym"weave"
   let c = gensym(nskLet, "cloth")
   result = newNimNode (if chain: nnkStmtListExpr else: nnkStmtList)
   result.add quote do:
@@ -175,30 +185,17 @@ proc weave_impl(instance, body: NimNode; chain: bool): NimNode =
     case stmt.kind
     of nnkIfStmt, nnkWhenStmt:
       for branch in stmt:
-        case branch.kind
-        of nnkElifBranch:
-          for i in 0..<branch[1].len:
-            branch[1][i] = add.newCall(c, branch[1][i])
-        of nnkElse:
-          for i in 0..<branch[0].len:
-            branch[0][i] = add.newCall(c, branch[0][i])
-        else: discard
+        branch[^1] = weave.newCall(c, branch[^1])
       result.add stmt
     of nnkForStmt, nnkWhileStmt:
-      for i in 0..<stmt[^1].len:
-        stmt[^1][i] = add.newCall(c, stmt[^1][i])
+      stmt[^1] = weave.newCall(c, stmt[^1])
       result.add stmt
-
+    of nnkVarSection, nnkLetSection:
+      result.add stmt
     else:
       result.add add.newCall(c, stmt)
   if chain:
     result.add c
-
-macro weave*(style: Style; body): untyped =
-  weave_impl(bindsym"cloth".newCall(style), body, true)
-
-macro weave*(cloth: Cloth; body): untyped =
-  weave_impl(cloth, body, false)
 
 converter clothfy*(text: string): Cloth {.noSideEffect.} =
   let data = new Data
