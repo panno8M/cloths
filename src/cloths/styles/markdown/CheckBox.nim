@@ -10,6 +10,8 @@ let super: array[bool, Unorder] = [Unorder(entry: "[ ] "), Unorder(entry: "[x] "
 method apply(style: CheckBox; data: Data): Data = apply(super[style.checked], data)
 
 styletest:
+  import cloths/needle
+  import cloths/styles/core/Multiline
   suite"CheckBox":
     test"simple":
       let test = weave multiline:

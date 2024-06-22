@@ -1,4 +1,5 @@
 import cloths/sdk
+import cloths/styles/core/Multiline
 import std/algorithm
 
 proc cmp*(a, b: Cloth): int =
@@ -22,6 +23,8 @@ method apply(style: Sort; data: Data): Data =
   result.subitems.sort(style.cmp)
 
 styletest:
+  import cloths/needle
+  import cloths/styles/core/[Constant, Empty]
   suite"Sort":
     test"simple":
       let test = weave sort:

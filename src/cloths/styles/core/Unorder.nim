@@ -19,6 +19,8 @@ method apply(style: Unorder; data: Data): Data =
     result.subitems.add rendered_cloth subdata
 
 styletest:
+  import cloths/needle
+  import Empty
   suite"Unorder":
     test"simple":
       let test = weave Unorder(entry: "* "):

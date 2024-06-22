@@ -38,6 +38,8 @@ method apply(style: Tree; data: Data): Data =
     result.subitems.add rendered_cloth subdata
 
 styletest:
+  import cloths/needle
+  import Multiline, Constant, Empty
   suite"Tree":
     test"single":
       let test = weave Tree():

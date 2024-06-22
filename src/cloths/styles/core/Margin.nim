@@ -1,12 +1,11 @@
 import cloths/sdk
+import std/sequtils
 
 type Margin* = ref object of Style
   thickness*: Natural = 1
 
 proc margin(thickness: Natural): Cloth =
-  weave rendered:
-    for _ in 1..thickness:
-      rendered_cloth""
+  rendered_cloth data rendered_cloth"".repeat(thickness)
 
 method apply(style: Margin; data: Data): Data =
   if unlikely(data.isNil): return
@@ -20,6 +19,8 @@ method apply(style: Margin; data: Data): Data =
       result.subitems.add margin
 
 styletest:
+  import cloths/needle
+  import Constant, Empty
   suite"Margin":
     test"single":
       let test = weave Margin(thickness: 1):

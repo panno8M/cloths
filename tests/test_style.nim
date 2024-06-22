@@ -7,21 +7,23 @@ when defined(styletest):
   echo ""
   echo "[Core Styles]"
 
-  import cloths/sdk
-  import cloths/styles/core/Unorder
+  import cloths/styles/core/Join
+  import cloths/styles/core/Margin
+  import cloths/styles/core/Multiline
   import cloths/styles/core/Order
   import cloths/styles/core/Prefix
-  import cloths/styles/core/Underline
-  import cloths/styles/core/Margin
   import cloths/styles/core/Tree
+  import cloths/styles/core/Underline
+  import cloths/styles/core/Unorder
 
-  sdk.styletest()
-  Unorder.styletest()
+  Join.styletest()
+  Margin.styletest()
+  Multiline.styletest()
   Order.styletest()
   Prefix.styletest()
-  Underline.styletest()
-  Margin.styletest()
   Tree.styletest()
+  Underline.styletest()
+  Unorder.styletest()
 
   echo ""
   echo "[Core Styles - Applications]"

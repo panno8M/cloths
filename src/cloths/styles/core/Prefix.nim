@@ -15,6 +15,8 @@ method apply(style: Prefix; data: Data): Data =
     result.subitems.add rendered_cloth subdata
 
 styletest:
+  import cloths/needle
+  import Empty
   suite"Prefix":
     test"simple":
       let test = weave Prefix():

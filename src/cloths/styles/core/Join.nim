@@ -17,6 +17,8 @@ method apply(style: Join; data: Data): Data =
   data(str.join(style.delim))
 
 styletest:
+  import cloths/needle
+  import Constant, Empty
   suite"Join":
     test"simple":
       let test = weave Join(delim: " "):

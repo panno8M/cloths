@@ -1,4 +1,5 @@
 import cloths/sdk
+import cloths/needle
 
 type Read* {.requiresinit.} = ref object of Style
   file*: File

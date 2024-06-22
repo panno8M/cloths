@@ -38,6 +38,8 @@ method apply(style: Order; data: Data): Data =
     result.subitems.add rendered_cloth subdata
 
 styletest:
+  import cloths/needle
+  import Empty
   suite"Order":
     test"simple":
       let test = weave Order():

@@ -99,6 +99,16 @@ runnableExamples:
 ## `Core <cloths/styles/core.html>`_ (imported)
 ## ============================================
 ##
+## `Constant <cloths/styles/core/Constant.html>`_
+## ----------------------------------------------
+##
+## Ignore styles under the style.
+##
+## `Empty <cloths/styles/core/Empty.html>`_
+## ----------------------------------------
+##
+## Ignore elements and return empty cloth.
+##
 ## `Indent <cloths/styles/core/Indent.html>`_
 ## ------------------------------------------
 ##
@@ -113,6 +123,11 @@ runnableExamples:
 ## ------------------------------------------
 ##
 ## Insert specified thickness of blank line between each line.
+##
+## `Multiline <cloths/styles/core/Multiline.html>`_
+## ------------------------------------------------
+##
+## Basic style that applys every styles under it.
 ##
 ## `Order <cloths/styles/core/Order.html>`_
 ## ----------------------------------------
@@ -204,17 +219,9 @@ runnableExamples:
 ##
 ## Insert "* " in front of each element.
 
-# SDK exportation #
-# =================
-import cloths/sdk
+from cloths/sdk import Cloth; export Cloth
+import cloths/needle; export needle
 
-export sdk.Cloth
-export sdk.Constant, sdk.Plain, sdk.Multiline, sdk.Empty, sdk.Ignore
-export sdk.constant, sdk.plain, sdk.multiline, sdk.empty, sdk.ignore
-export sdk.cloth, sdk.`$`, sdk.add, sdk.weave, sdk.clothfy
-
-# Core Components #
-# =================
 import cloths/styles/core; export core
 import cloths/styles/controller; export controller
 

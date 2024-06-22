@@ -9,6 +9,7 @@ let indent2* = indent(2)
 method apply(style: Indent; data: Data): Data = apply(style.super, data)
 
 styletest:
+  import cloths/needle
   suite"Indent":
     test"simple":
       let test = weave indent2:

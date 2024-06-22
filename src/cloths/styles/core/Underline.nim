@@ -37,6 +37,8 @@ method apply(style: Underline; data: Data): Data =
     result.subitems.add rendered_cloth underline(subdata, style.pattern)
 
 styletest:
+  import cloths/needle
+  import Constant
   suite"Underline":
     test"simple":
       let test = weave Underline():
