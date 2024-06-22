@@ -29,64 +29,10 @@ runnableExamples:
   #   3. baz
   # END LIST
 
-## `weave` Macro
-## #############
+## Basic Usage
+## ###########
 ##
-## `weave` is a very useful macro to build a cloth.
-##
-## ```
-## weave multiline:
-##   "foo"
-##   "bar"
-##   "baz"
-## ```
-##
-## is same as:
-##
-## ```
-## cloth(multiline, clothfy"foo", clothfy"bar", clothfy"baz")
-## ```
-##
-## or,
-##
-## ```
-## let cloth = cloth(multiline)
-## cloth.add "foo"
-## cloth.add "bar"
-## cloth.add "baz"
-## ```
-##
-## Additionaly, in weave, you can use if, when, for and while statements. e.g.:
-##
-## ```
-## weave multiline:
-##   if foo:
-##     "bar"
-##     "baz"
-## ```
-##
-## will be expanded to:
-##
-## ```
-## let cloth = cloth multiline
-## if foo:
-##   cloth.add "bar"
-##   cloth.add "baz"
-## ```
-##
-## and other statements are same. weave tryes to append `cloth.add` for each lines.
-##
-## If you do not needs this function, encircle with `block:` to avoid it.
-##
-## ```
-## weave multiline:
-##   if foo:
-##     block:
-##       var str = "bar"
-##       (blah blah blah...)
-##       str
-##     "baz"
-## ```
+## see `Needle <cloths/needle.html>`_.
 
 ## Style Development Guide
 ## #######################
@@ -122,7 +68,7 @@ runnableExamples:
 ## `Multiline <cloths/styles/core/Multiline.html>`_
 ## ------------------------------------------------
 ##
-## Basic style that applys every styles under it.
+## Basic style that applies every styles under it.
 ##
 ## `Order <cloths/styles/core/Order.html>`_
 ## ----------------------------------------

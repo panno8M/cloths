@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>cloths/styles/core/Order</title>
+<title>cloths/styles/core/Multiline</title>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAAUAAAAF////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAAIAAABbAAAAlQAAAKIAAACbAAAAmwAAAKIAAACVAAAAWwAAAAL///8A////AP///wD///8A////AAAAABQAAADAAAAAYwAAAA3///8A////AP///wD///8AAAAADQAAAGMAAADAAAAAFP///wD///8A////AP///wAAAACdAAAAOv///wD///8A////AP///wD///8A////AP///wD///8AAAAAOgAAAJ3///8A////AP///wAAAAAnAAAAcP///wAAAAAoAAAASv///wD///8A////AP///wAAAABKAAAAKP///wAAAABwAAAAJ////wD///8AAAAAgQAAABwAAACIAAAAkAAAAJMAAACtAAAAFQAAABUAAACtAAAAkwAAAJAAAACIAAAAHAAAAIH///8A////AAAAAKQAAACrAAAAaP///wD///8AAAAARQAAANIAAADSAAAARf///wD///8AAAAAaAAAAKsAAACk////AAAAADMAAACcAAAAnQAAABj///8A////AP///wAAAAAYAAAAGP///wD///8A////AAAAABgAAACdAAAAnAAAADMAAAB1AAAAwwAAAP8AAADpAAAAsQAAAE4AAAAb////AP///wAAAAAbAAAATgAAALEAAADpAAAA/wAAAMMAAAB1AAAAtwAAAOkAAAD/AAAA/wAAAP8AAADvAAAA3gAAAN4AAADeAAAA3gAAAO8AAAD/AAAA/wAAAP8AAADpAAAAtwAAAGUAAAA/AAAA3wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAADfAAAAPwAAAGX///8A////AAAAAEgAAADtAAAAvwAAAL0AAADGAAAA7wAAAO8AAADGAAAAvQAAAL8AAADtAAAASP///wD///8A////AP///wD///8AAAAAO////wD///8A////AAAAAIcAAACH////AP///wD///8AAAAAO////wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A//8AAP//AAD4HwAA7/cAAN/7AAD//wAAoYUAAJ55AACf+QAAh+EAAAAAAADAAwAA4AcAAP5/AAD//wAA//8AAA=="/>
@@ -20,7 +20,7 @@
 <body>
   <div class="document" id="documentId">
     <div class="container">
-      <h1 class="title">cloths/styles/core/Order</h1>
+      <h1 class="title">cloths/styles/core/Multiline</h1>
       <div class="row">
   <div class="three columns">
     <div class="theme-select-wrapper">
@@ -54,33 +54,16 @@
   <details open>
     <summary><a class="reference reference-toplevel" href="#7" id="57">Types</a></summary>
     <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#Order" title="Order = ref object of Style
-  entry*: OrderEntry = :anonymous">Order</a></li>
-<li><a class="reference" href="#OrderEntry" title="OrderEntry = proc (idx: Positive): string">OrderEntry</a></li>
+      <li><a class="reference" href="#Multiline" title="Multiline = ref object of Style">Multiline</a></li>
 
     </ul>
   </details>
 </li>
 <li>
   <details open>
-    <summary><a class="reference reference-toplevel" href="#12" id="62">Procs</a></summary>
+    <summary><a class="reference reference-toplevel" href="#9" id="59">Lets</a></summary>
     <ul class="simple simple-toc-section">
-      <ul class="simple nested-toc-section">roman
-  <li><a class="reference" href="#roman%2CPositive" title="roman(num: Positive): string">roman(num: Positive): string</a></li>
-
-</ul>
-
-    </ul>
-  </details>
-</li>
-<li>
-  <details open>
-    <summary><a class="reference reference-toplevel" href="#18" id="68">Templates</a></summary>
-    <ul class="simple simple-toc-section">
-      <ul class="simple nested-toc-section">orderIdx
-  <li><a class="reference" href="#orderIdx.t" title="orderIdx(body): Order">orderIdx(body): Order</a></li>
-
-</ul>
+      <li><a class="reference" href="#multiline_2" title="multiline = Multiline()">multiline</a></li>
 
     </ul>
   </details>
@@ -103,18 +86,8 @@
 <div class="section" id="7">
   <h1><a class="toc-backref" href="#7">Types</a></h1>
   <dl class="item">
-    <div id="Order">
-  <dt><pre><a href="Order.html#Order"><span class="Identifier">Order</span></a> <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <a href="../../sdk.html#Style"><span class="Identifier">Style</span></a>
-  <span class="Identifier">entry</span><span class="Operator">*</span><span class="Other">:</span> <a href="Order.html#OrderEntry"><span class="Identifier">OrderEntry</span></a> <span class="Other">=</span> <span class="Operator">:anonymous</span>
-</pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-<div id="OrderEntry">
-  <dt><pre><a href="Order.html#OrderEntry"><span class="Identifier">OrderEntry</span></a> <span class="Other">=</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">idx</span><span class="Other">:</span> <span class="Identifier">Positive</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span></pre></dt>
+    <div id="Multiline">
+  <dt><pre><a href="Multiline.html#Multiline"><span class="Identifier">Multiline</span></a> <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <a href="../../sdk.html#Style"><span class="Identifier">Style</span></a></pre></dt>
   <dd>
     
     
@@ -124,36 +97,16 @@
 
   </dl>
 </div>
-<div class="section" id="12">
-  <h1><a class="toc-backref" href="#12">Procs</a></h1>
+<div class="section" id="9">
+  <h1><a class="toc-backref" href="#9">Lets</a></h1>
   <dl class="item">
-    <div id="roman-procs-all">
-  <div id="roman,Positive">
-  <dt><pre><span class="Keyword">proc</span> <a href="#roman%2CPositive"><span class="Identifier">roman</span></a><span class="Other">(</span><span class="Identifier">num</span><span class="Other">:</span> <span class="Identifier">Positive</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+    <div id="multiline_2">
+  <dt><pre><a href="Multiline.html#multiline"><span class="Identifier">multiline</span></a> <span class="Other">=</span> <a href="Multiline.html#Multiline"><span class="Identifier">Multiline</span></a><span class="Other">(</span><span class="Other">)</span></pre></dt>
   <dd>
     
     
     
   </dd>
-</div>
-
-</div>
-
-  </dl>
-</div>
-<div class="section" id="18">
-  <h1><a class="toc-backref" href="#18">Templates</a></h1>
-  <dl class="item">
-    <div id="orderIdx-templates-all">
-  <div id="orderIdx.t">
-  <dt><pre><span class="Keyword">template</span> <a href="#orderIdx.t"><span class="Identifier">orderIdx</span></a><span class="Other">(</span><span class="Identifier">body</span><span class="Other">)</span><span class="Other">:</span> <a href="Order.html#Order"><span class="Identifier">Order</span></a></pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-
 </div>
 
   </dl>

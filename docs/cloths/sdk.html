@@ -55,7 +55,6 @@
       <li><a class="reference" href="#Cloth" title="Cloth = object
   style*: Style = nil
   data*: Data = nil">Cloth</a></li>
-<li><a class="reference" href="#Constant" title="Constant = ref object of Style">Constant</a></li>
 <li><a class="reference" href="#Data" title="Data = ref object
   case isString*: bool
   of true:
@@ -63,25 +62,8 @@
 
   of false:
       subitems*: seq[Cloth]">Data</a></li>
-<li><a class="reference" href="#Empty" title="Empty = ref object of Style">Empty</a></li>
-<li><a class="reference" href="#Ignore" title="Ignore = Empty">Ignore</a></li>
 <li><a class="reference" href="#Iterator" title="Iterator = object">Iterator</a></li>
-<li><a class="reference" href="#MultiLine" title="MultiLine = Plain">MultiLine</a></li>
-<li><a class="reference" href="#Plain" title="Plain = ref object of Style">Plain</a></li>
 <li><a class="reference" href="#Style" title="Style = ref object of RootObj">Style</a></li>
-
-    </ul>
-  </details>
-</li>
-<li>
-  <details open>
-    <summary><a class="reference reference-toplevel" href="#9" id="59">Lets</a></summary>
-    <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#constant_2" title="constant = Constant()">constant</a></li>
-<li><a class="reference" href="#empty_2" title="empty = Empty()">empty</a></li>
-<li><a class="reference" href="#ignore_2" title="ignore = Ignore()">ignore</a></li>
-<li><a class="reference" href="#multiline_2" title="multiline = MultiLine()">multiline</a></li>
-<li><a class="reference" href="#plain_2" title="plain = Plain()">plain</a></li>
 
     </ul>
   </details>
@@ -90,7 +72,7 @@
   <details open>
     <summary><a class="reference reference-toplevel" href="#10" id="60">Consts</a></summary>
     <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#rendered" title="rendered: Style = nil">rendered</a></li>
+      <li><a class="reference" href="#constant" title="constant: Style = nil">constant</a></li>
 
     </ul>
   </details>
@@ -99,30 +81,18 @@
   <details open>
     <summary><a class="reference reference-toplevel" href="#12" id="62">Procs</a></summary>
     <ul class="simple simple-toc-section">
-      <ul class="simple nested-toc-section">$
-  <li><a class="reference" href="#%24%2CCloth" title="`$`(cloth: Cloth): string">`$`(cloth: Cloth): string</a></li>
-
-</ul>
-<ul class="simple nested-toc-section">add
-  <li><a class="reference" href="#add%2CCloth%2Cvarargs%5BCloth%5D" title="add(cloth: Cloth; subitems: varargs[Cloth])">add(cloth: Cloth; subitems: varargs[Cloth])</a></li>
-
-</ul>
-<ul class="simple nested-toc-section">apply
+      <ul class="simple nested-toc-section">apply
   <li><a class="reference" href="#apply%2CCloth" title="apply(cloth: Cloth): Data">apply(cloth: Cloth): Data</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">cloth
-  <li><a class="reference" href="#cloth%2CStyle%2Cvarargs%5BCloth%5D" title="cloth(style: Style; subitems: varargs[Cloth]): Cloth">cloth(style: Style; subitems: varargs[Cloth]): Cloth</a></li>
+  <li><a class="reference" href="#cloth%2CData" title="cloth(data: Data): Cloth">cloth(data: Data): Cloth</a></li>
+<li><a class="reference" href="#cloth%2Cstring" title="cloth(str: string): Cloth">cloth(str: string): Cloth</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">cloth_lowlevel
   <li><a class="reference" href="#cloth_lowlevel%2CStyle%2CData" title="cloth_lowlevel(style: Style; data: Data): Cloth">cloth_lowlevel(style: Style; data: Data): Cloth</a></li>
 <li><a class="reference" href="#cloth_lowlevel%2CStyle%2Cstring" title="cloth_lowlevel(style: Style; str: string): Cloth">cloth_lowlevel(style: Style; str: string): Cloth</a></li>
-
-</ul>
-<ul class="simple nested-toc-section">copy
-  <li><a class="reference" href="#copy%2CCloth" title="copy(cloth: Cloth): Cloth">copy(cloth: Cloth): Cloth</a></li>
-<li><a class="reference" href="#copy%2CData" title="copy(data: Data): Data">copy(data: Data): Data</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">data
@@ -140,11 +110,6 @@
 </ul>
 <ul class="simple nested-toc-section">next
   <li><a class="reference" href="#next%2CIterator" title="next(iter: var Iterator): ptr string">next(iter: var Iterator): ptr string</a></li>
-
-</ul>
-<ul class="simple nested-toc-section">rendered_cloth
-  <li><a class="reference" href="#rendered_cloth%2CData" title="rendered_cloth(data: Data): Cloth">rendered_cloth(data: Data): Cloth</a></li>
-<li><a class="reference" href="#rendered_cloth%2Cstring" title="rendered_cloth(str: string): Cloth">rendered_cloth(str: string): Cloth</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">whitespace
@@ -185,23 +150,10 @@
 </li>
 <li>
   <details open>
-    <summary><a class="reference reference-toplevel" href="#16" id="66">Converters</a></summary>
-    <ul class="simple simple-toc-section">
-      <ul class="simple nested-toc-section">clothfy
-  <li><a class="reference" href="#clothfy.c%2Cstring" title="clothfy(text: string): Cloth">clothfy(text: string): Cloth</a></li>
-
-</ul>
-
-    </ul>
-  </details>
-</li>
-<li>
-  <details open>
     <summary><a class="reference reference-toplevel" href="#17" id="67">Macros</a></summary>
     <ul class="simple simple-toc-section">
-      <ul class="simple nested-toc-section">weave
-  <li><a class="reference" href="#weave.m%2CCloth%2C" title="weave(cloth: Cloth; body): untyped">weave(cloth: Cloth; body): untyped</a></li>
-<li><a class="reference" href="#weave.m%2CStyle%2C" title="weave(style: Style; body): untyped">weave(style: Style; body): untyped</a></li>
+      <ul class="simple nested-toc-section">styletest
+  <li><a class="reference" href="#styletest.m" title="styletest(body)">styletest(body)</a></li>
 
 </ul>
 
@@ -214,10 +166,6 @@
     <ul class="simple simple-toc-section">
       <ul class="simple nested-toc-section">eachAppliedData
   <li><a class="reference" href="#eachAppliedData.t%2CData%2C%2C%2C" title="eachAppliedData(data: Data; metatoken, datatoken, body): untyped">eachAppliedData(data: Data; metatoken, datatoken, body): untyped</a></li>
-
-</ul>
-<ul class="simple nested-toc-section">styletest
-  <li><a class="reference" href="#styletest.t" title="styletest(body)">styletest(body)</a></li>
 
 </ul>
 
@@ -249,15 +197,6 @@
     
   </dd>
 </div>
-<div id="Constant">
-  <dt><pre><a href="sdk.html#Constant"><span class="Identifier">Constant</span></a> <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <a href="sdk.html#Style"><span class="Identifier">Style</span></a>
-  </pre></dt>
-  <dd>
-    
-    Similar to Multiline, but will NOT apply the style.
-    
-  </dd>
-</div>
 <div id="Data">
   <dt><pre><a href="sdk.html#Data"><span class="Identifier">Data</span></a> <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span>
   <span class="Keyword">case</span> <span class="Identifier">isString</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">bool</span>
@@ -274,41 +213,9 @@
     
   </dd>
 </div>
-<div id="Empty">
-  <dt><pre><a href="sdk.html#Empty"><span class="Identifier">Empty</span></a> <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <a href="sdk.html#Style"><span class="Identifier">Style</span></a></pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-<div id="Ignore">
-  <dt><pre><a href="sdk.html#Ignore"><span class="Identifier">Ignore</span></a> <span class="Other">=</span> <a href="sdk.html#Empty"><span class="Identifier">Empty</span></a></pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
 <div id="Iterator">
   <dt><pre><a href="sdk.html#Iterator"><span class="Identifier">Iterator</span></a> <span class="Other">=</span> <span class="Keyword">object</span>
   </pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-<div id="MultiLine">
-  <dt><pre><a href="sdk.html#MultiLine"><span class="Identifier">MultiLine</span></a> <span class="Other">=</span> <a href="sdk.html#Plain"><span class="Identifier">Plain</span></a></pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-<div id="Plain">
-  <dt><pre><a href="sdk.html#Plain"><span class="Identifier">Plain</span></a> <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <a href="sdk.html#Style"><span class="Identifier">Style</span></a></pre></dt>
   <dd>
     
     
@@ -326,57 +233,11 @@
 
   </dl>
 </div>
-<div class="section" id="9">
-  <h1><a class="toc-backref" href="#9">Lets</a></h1>
-  <dl class="item">
-    <div id="constant_2">
-  <dt><pre><a href="sdk.html#constant"><span class="Identifier">constant</span></a> <span class="Other">=</span> <a href="sdk.html#Constant"><span class="Identifier">Constant</span></a><span class="Other">(</span><span class="Other">)</span></pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-<div id="empty_2">
-  <dt><pre><a href="sdk.html#empty"><span class="Identifier">empty</span></a> <span class="Other">=</span> <a href="sdk.html#Empty"><span class="Identifier">Empty</span></a><span class="Other">(</span><span class="Other">)</span></pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-<div id="ignore_2">
-  <dt><pre><a href="sdk.html#ignore"><span class="Identifier">ignore</span></a> <span class="Other">=</span> <a href="sdk.html#Ignore"><span class="Identifier">Ignore</span></a><span class="Other">(</span><span class="Other">)</span></pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-<div id="multiline_2">
-  <dt><pre><a href="sdk.html#multiline"><span class="Identifier">multiline</span></a> <span class="Other">=</span> <a href="sdk.html#MultiLine"><span class="Identifier">MultiLine</span></a><span class="Other">(</span><span class="Other">)</span></pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-<div id="plain_2">
-  <dt><pre><a href="sdk.html#plain"><span class="Identifier">plain</span></a> <span class="Other">=</span> <a href="sdk.html#Plain"><span class="Identifier">Plain</span></a><span class="Other">(</span><span class="Other">)</span></pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-
-  </dl>
-</div>
 <div class="section" id="10">
   <h1><a class="toc-backref" href="#10">Consts</a></h1>
   <dl class="item">
-    <div id="rendered">
-  <dt><pre><a href="sdk.html#rendered"><span class="Identifier">rendered</span></a><span class="Other">:</span> <a href="sdk.html#Style"><span class="Identifier">Style</span></a> <span class="Other">=</span> <span class="Keyword">nil</span></pre></dt>
+    <div id="constant">
+  <dt><pre><a href="sdk.html#constant"><span class="Identifier">constant</span></a><span class="Other">:</span> <a href="sdk.html#Style"><span class="Identifier">Style</span></a> <span class="Other">=</span> <span class="Keyword">nil</span></pre></dt>
   <dd>
     
     
@@ -389,31 +250,7 @@
 <div class="section" id="12">
   <h1><a class="toc-backref" href="#12">Procs</a></h1>
   <dl class="item">
-    <div id="$-procs-all">
-  <div id="$,Cloth">
-  <dt><pre><span class="Keyword">proc</span> <a href="#%24%2CCloth"><span class="Identifier">`$`</span></a><span class="Other">(</span><span class="Identifier">cloth</span><span class="Other">:</span> <a href="sdk.html#Cloth"><span class="Identifier">Cloth</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span>
-                                 <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-
-</div>
-<div id="add-procs-all">
-  <div id="add,Cloth,varargs[Cloth]">
-  <dt><pre><span class="Keyword">func</span> <a href="#add%2CCloth%2Cvarargs%5BCloth%5D"><span class="Identifier">add</span></a><span class="Other">(</span><span class="Identifier">cloth</span><span class="Other">:</span> <a href="sdk.html#Cloth"><span class="Identifier">Cloth</span></a><span class="Other">;</span> <span class="Identifier">subitems</span><span class="Other">:</span> <span class="Identifier">varargs</span><span class="Other">[</span><a href="sdk.html#Cloth"><span class="Identifier">Cloth</span></a><span class="Other">]</span><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-
-</div>
-<div id="apply-procs-all">
+    <div id="apply-procs-all">
   <div id="apply,Cloth">
   <dt><pre><span class="Keyword">proc</span> <a href="#apply%2CCloth"><span class="Identifier">apply</span></a><span class="Other">(</span><span class="Identifier">cloth</span><span class="Other">:</span> <a href="sdk.html#Cloth"><span class="Identifier">Cloth</span></a><span class="Other">)</span><span class="Other">:</span> <a href="sdk.html#Data"><span class="Identifier">Data</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span>
                                  <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
@@ -426,9 +263,16 @@
 
 </div>
 <div id="cloth-procs-all">
-  <div id="cloth,Style,varargs[Cloth]">
-  <dt><pre><span class="Keyword">proc</span> <a href="#cloth%2CStyle%2Cvarargs%5BCloth%5D"><span class="Identifier">cloth</span></a><span class="Other">(</span><span class="Identifier">style</span><span class="Other">:</span> <a href="sdk.html#Style"><span class="Identifier">Style</span></a><span class="Other">;</span> <span class="Identifier">subitems</span><span class="Other">:</span> <span class="Identifier">varargs</span><span class="Other">[</span><a href="sdk.html#Cloth"><span class="Identifier">Cloth</span></a><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="sdk.html#Cloth"><span class="Identifier">Cloth</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <div id="cloth,Data">
+  <dt><pre><span class="Keyword">proc</span> <a href="#cloth%2CData"><span class="Identifier">cloth</span></a><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <a href="sdk.html#Data"><span class="Identifier">Data</span></a><span class="Other">)</span><span class="Other">:</span> <a href="sdk.html#Cloth"><span class="Identifier">Cloth</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    
+    
+  </dd>
+</div>
+<div id="cloth,string">
+  <dt><pre><span class="Keyword">proc</span> <a href="#cloth%2Cstring"><span class="Identifier">cloth</span></a><span class="Other">(</span><span class="Identifier">str</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <a href="sdk.html#Cloth"><span class="Identifier">Cloth</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
     
@@ -450,27 +294,6 @@
 <div id="cloth_lowlevel,Style,string">
   <dt><pre><span class="Keyword">proc</span> <a href="#cloth_lowlevel%2CStyle%2Cstring"><span class="Identifier">cloth_lowlevel</span></a><span class="Other">(</span><span class="Identifier">style</span><span class="Other">:</span> <a href="sdk.html#Style"><span class="Identifier">Style</span></a><span class="Other">;</span> <span class="Identifier">str</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <a href="sdk.html#Cloth"><span class="Identifier">Cloth</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
     <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-
-</div>
-<div id="copy-procs-all">
-  <div id="copy,Cloth">
-  <dt><pre><span class="Keyword">proc</span> <a href="#copy%2CCloth"><span class="Identifier">copy</span></a><span class="Other">(</span><span class="Identifier">cloth</span><span class="Other">:</span> <a href="sdk.html#Cloth"><span class="Identifier">Cloth</span></a><span class="Other">)</span><span class="Other">:</span> <a href="sdk.html#Cloth"><span class="Identifier">Cloth</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span>
-                                 <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-<div id="copy,Data">
-  <dt><pre><span class="Keyword">proc</span> <a href="#copy%2CData"><span class="Identifier">copy</span></a><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <a href="sdk.html#Data"><span class="Identifier">Data</span></a><span class="Other">)</span><span class="Other">:</span> <a href="sdk.html#Data"><span class="Identifier">Data</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span>
-                              <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
     
@@ -531,25 +354,6 @@
 </div>
 
 </div>
-<div id="rendered_cloth-procs-all">
-  <div id="rendered_cloth,Data">
-  <dt><pre><span class="Keyword">proc</span> <a href="#rendered_cloth%2CData"><span class="Identifier">rendered_cloth</span></a><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <a href="sdk.html#Data"><span class="Identifier">Data</span></a><span class="Other">)</span><span class="Other">:</span> <a href="sdk.html#Cloth"><span class="Identifier">Cloth</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-<div id="rendered_cloth,string">
-  <dt><pre><span class="Keyword">proc</span> <a href="#rendered_cloth%2Cstring"><span class="Identifier">rendered_cloth</span></a><span class="Other">(</span><span class="Identifier">str</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <a href="sdk.html#Cloth"><span class="Identifier">Cloth</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-
-</div>
 <div id="whitespace-procs-all">
   <div id="whitespace,Natural">
   <dt><pre><span class="Keyword">proc</span> <a href="#whitespace%2CNatural"><span class="Identifier">whitespace</span></a><span class="Other">(</span><span class="Identifier">length</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
@@ -569,8 +373,8 @@
   <dl class="item">
     <div id="apply-methods-all">
   <div id="apply.e,Style,Data">
-  <dt><pre><span class="Keyword">method</span> <a href="#apply.e%2CStyle%2CData"><span class="Identifier">apply</span></a><span class="Other">(</span><span class="Identifier">style</span><span class="Other">:</span> <a href="sdk.html#Style"><span class="Identifier">Style</span></a><span class="Other">;</span> <span class="Identifier">data</span><span class="Other">:</span> <a href="sdk.html#Data"><span class="Identifier">Data</span></a><span class="Other">)</span><span class="Other">:</span> <a href="sdk.html#Data"><span class="Identifier">Data</span></a> {.<span class="Identifier">base</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dt><pre><span class="Keyword">method</span> <a href="#apply.e%2CStyle%2CData"><span class="Identifier">apply</span></a><span class="Other">(</span><span class="Identifier">style</span><span class="Other">:</span> <a href="sdk.html#Style"><span class="Identifier">Style</span></a><span class="Other">;</span> <span class="Identifier">data</span><span class="Other">:</span> <a href="sdk.html#Data"><span class="Identifier">Data</span></a><span class="Other">)</span><span class="Other">:</span> <a href="sdk.html#Data"><span class="Identifier">Data</span></a> {.<span class="Identifier">base</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
     
@@ -611,38 +415,12 @@
 
   </dl>
 </div>
-<div class="section" id="16">
-  <h1><a class="toc-backref" href="#16">Converters</a></h1>
-  <dl class="item">
-    <div id="clothfy-converters-all">
-  <div id="clothfy.c,string">
-  <dt><pre><span class="Keyword">converter</span> <a href="#clothfy.c%2Cstring"><span class="Identifier">clothfy</span></a><span class="Other">(</span><span class="Identifier">text</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <a href="sdk.html#Cloth"><span class="Identifier">Cloth</span></a> {.<span class="Identifier">noSideEffect</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-
-</div>
-
-  </dl>
-</div>
 <div class="section" id="17">
   <h1><a class="toc-backref" href="#17">Macros</a></h1>
   <dl class="item">
-    <div id="weave-macros-all">
-  <div id="weave.m,Cloth,">
-  <dt><pre><span class="Keyword">macro</span> <a href="#weave.m%2CCloth%2C"><span class="Identifier">weave</span></a><span class="Other">(</span><span class="Identifier">cloth</span><span class="Other">:</span> <a href="sdk.html#Cloth"><span class="Identifier">Cloth</span></a><span class="Other">;</span> <span class="Identifier">body</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-<div id="weave.m,Style,">
-  <dt><pre><span class="Keyword">macro</span> <a href="#weave.m%2CStyle%2C"><span class="Identifier">weave</span></a><span class="Other">(</span><span class="Identifier">style</span><span class="Other">:</span> <a href="sdk.html#Style"><span class="Identifier">Style</span></a><span class="Other">;</span> <span class="Identifier">body</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+    <div id="styletest-macros-all">
+  <div id="styletest.m">
+  <dt><pre><span class="Keyword">macro</span> <a href="#styletest.m"><span class="Identifier">styletest</span></a><span class="Other">(</span><span class="Identifier">body</span><span class="Other">)</span></pre></dt>
   <dd>
     
     
@@ -668,17 +446,6 @@
 </div>
 
 </div>
-<div id="styletest-templates-all">
-  <div id="styletest.t">
-  <dt><pre><span class="Keyword">template</span> <a href="#styletest.t"><span class="Identifier">styletest</span></a><span class="Other">(</span><span class="Identifier">body</span><span class="Other">)</span></pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-
-</div>
 
   </dl>
 </div>
@@ -689,7 +456,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2024-06-21 11:47:32 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2024-06-22 06:30:45 UTC</small>
       </div>
     </div>
   </div>

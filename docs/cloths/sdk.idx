@@ -6,41 +6,21 @@ nim	data	cloths/sdk.html#data,string	proc data(str: string): Data		28
 nim	data	cloths/sdk.html#data,varargs[Cloth]	proc data(subitems: varargs[Cloth]): Data		29
 nim	cloth_lowlevel	cloths/sdk.html#cloth_lowlevel,Style,Data	proc cloth_lowlevel(style: Style; data: Data): Cloth		31
 nim	cloth_lowlevel	cloths/sdk.html#cloth_lowlevel,Style,string	proc cloth_lowlevel(style: Style; str: string): Cloth		32
-nim	rendered	cloths/sdk.html#rendered	const rendered		34
-nim	rendered_cloth	cloths/sdk.html#rendered_cloth,Data	proc rendered_cloth(data: Data): Cloth		35
-nim	rendered_cloth	cloths/sdk.html#rendered_cloth,string	proc rendered_cloth(str: string): Cloth		36
+nim	constant	cloths/sdk.html#constant	const constant		34
+nim	cloth	cloths/sdk.html#cloth,Data	proc cloth(data: Data): Cloth		35
+nim	cloth	cloths/sdk.html#cloth,string	proc cloth(str: string): Cloth		36
 nim	len	cloths/sdk.html#len,Data	proc len(data: Data): int		39
-nim	copy	cloths/sdk.html#copy,Cloth	proc copy(cloth: Cloth): Cloth		45
-nim	copy	cloths/sdk.html#copy,Data	proc copy(data: Data): Data		46
-nim	apply	cloths/sdk.html#apply.e,Style,Data	method apply(style: Style; data: Data): Data		55
-nim	apply	cloths/sdk.html#apply,Cloth	proc apply(cloth: Cloth): Data		57
-nim	Iterator	cloths/sdk.html#Iterator	object Iterator		61
-nim	newIterator	cloths/sdk.html#newIterator,Data	proc newIterator(data: Data): Iterator		64
-nim	next	cloths/sdk.html#next,Iterator	proc next(iter: var Iterator): ptr string		73
-nim	eachline	cloths/sdk.html#eachline.i,Data	iterator eachline(data: Data): var string		83
-nim	eachpair	cloths/sdk.html#eachpair.i,Data	iterator eachpair(data: var Data): tuple[i_line: int, line: var string]		88
-nim	eachAppliedData	cloths/sdk.html#eachAppliedData.t,Data,,,	template eachAppliedData(data: Data; metatoken, datatoken, body): untyped		97
-nim	whitespace	cloths/sdk.html#whitespace,Natural	proc whitespace(length: Natural): string		120
-nim	Constant	cloths/sdk.html#Constant	type Constant		127
-nim	constant	cloths/sdk.html#constant_2	let constant		129
-nim	Plain	cloths/sdk.html#Plain	type Plain		134
-nim	plain	cloths/sdk.html#plain_2	let plain		135
-nim	MultiLine	cloths/sdk.html#MultiLine	type MultiLine		136
-nim	multiline	cloths/sdk.html#multiline_2	let multiline		137
-nim	Empty	cloths/sdk.html#Empty	type Empty		149
-nim	empty	cloths/sdk.html#empty_2	let empty		150
-nim	Ignore	cloths/sdk.html#Ignore	type Ignore		151
-nim	ignore	cloths/sdk.html#ignore_2	let ignore		152
-nim	cloth	cloths/sdk.html#cloth,Style,varargs[Cloth]	proc cloth(style: Style; subitems: varargs[Cloth]): Cloth		159
-nim	`$`	cloths/sdk.html#$,Cloth	proc `$`(cloth: Cloth): string		162
-nim	add	cloths/sdk.html#add,Cloth,varargs[Cloth]	proc add(cloth: Cloth; subitems: varargs[Cloth])		165
-nim	weave	cloths/sdk.html#weave.m,Style,	macro weave(style: Style; body): untyped		197
-nim	weave	cloths/sdk.html#weave.m,Cloth,	macro weave(cloth: Cloth; body): untyped		200
-nim	clothfy	cloths/sdk.html#clothfy.c,string	converter clothfy(text: string): Cloth		203
-nim	styletest	cloths/sdk.html#styletest.t	template styletest(body)		218
+nim	apply	cloths/sdk.html#apply.e,Style,Data	method apply(style: Style; data: Data): Data		45
+nim	apply	cloths/sdk.html#apply,Cloth	proc apply(cloth: Cloth): Data		47
+nim	Iterator	cloths/sdk.html#Iterator	object Iterator		51
+nim	newIterator	cloths/sdk.html#newIterator,Data	proc newIterator(data: Data): Iterator		54
+nim	next	cloths/sdk.html#next,Iterator	proc next(iter: var Iterator): ptr string		63
+nim	eachline	cloths/sdk.html#eachline.i,Data	iterator eachline(data: Data): var string		73
+nim	eachpair	cloths/sdk.html#eachpair.i,Data	iterator eachpair(data: var Data): tuple[i_line: int, line: var string]		78
+nim	eachAppliedData	cloths/sdk.html#eachAppliedData.t,Data,,,	template eachAppliedData(data: Data; metatoken, datatoken, body): untyped		87
+nim	whitespace	cloths/sdk.html#whitespace,Natural	proc whitespace(length: Natural): string		110
+nim	styletest	cloths/sdk.html#styletest.m	macro styletest(body)		121
 nimgrp	clothlowlevel	cloths/sdk.html#cloth_lowlevel-procs-all	proc		31
-nimgrp	renderedcloth	cloths/sdk.html#rendered_cloth-procs-all	proc		35
 nimgrp	data	cloths/sdk.html#data-procs-all	proc		28
-nimgrp	copy	cloths/sdk.html#copy-procs-all	proc		45
-nimgrp	weave	cloths/sdk.html#weave-macros-all	macro		197
+nimgrp	cloth	cloths/sdk.html#cloth-procs-all	proc		35
 heading	Cloths' Style Development Kit	cloths/sdk.html#cloths-style-development-kit	 Cloths' Style Development Kit		0

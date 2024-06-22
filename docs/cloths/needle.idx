@@ -1,0 +1,11 @@
+nimTitle	needle	cloths/needle.html	module cloths/needle		0
+nim	deepcopy	cloths/needle.html#deepcopy,Cloth	proc deepcopy(cloth: Cloth): Cloth		94
+nim	cloth	cloths/needle.html#cloth,Style,varargs[Cloth]	proc cloth(style: Style; subitems: varargs[Cloth]): Cloth		104
+nim	`$`	cloths/needle.html#$,Cloth	proc `$`(cloth: Cloth): string		107
+nim	add	cloths/needle.html#add,Cloth,varargs[Cloth]	proc add(cloth: Cloth; subitems: varargs[Cloth])		110
+nim	weave	cloths/needle.html#weave.m,Style,	macro weave(style: Style; body): untyped		117
+nim	weave	cloths/needle.html#weave.m,Cloth,	macro weave(cloth: Cloth; body): untyped		120
+nim	clothfy	cloths/needle.html#clothfy.c,string	converter clothfy(text: string): Cloth		146
+nimgrp	weave	cloths/needle.html#weave-macros-all	macro		117
+heading	Needle - Cloths' weaving toolkit	cloths/needle.html#needle-minus-cloths-weaving-toolkit	 Needle - Cloths' weaving toolkit		0
+heading	nimweave Macro	cloths/needle.html#nimweave-macro	 <tt class="docutils literal"><span class="pre"><span class="Identifier">weave</span></span></tt> Macro		0

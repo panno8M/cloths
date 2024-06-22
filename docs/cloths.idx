@@ -1,12 +1,14 @@
 nimTitle	cloths	cloths.html	module cloths		0
 heading	Overview	cloths.html#overview	 Overview		0
-heading	nimweave Macro	cloths.html#nimweave-macro	 <tt class="docutils literal"><span class="pre"><span class="Identifier">weave</span></span></tt> Macro		0
+heading	Basic Usage	cloths.html#basic-usage	 Basic Usage		0
 heading	Style Development Guide	cloths.html#style-development-guide	 Style Development Guide		0
 heading	Built-in Style List	cloths.html#builtminusin-style-list	 Built-in Style List		0
 heading	Corecloths/styles/core.html (imported)	cloths.html#builtminusin-style-list-coreclothsslashstylesslashcoredothtml-imported	  <a class="reference external" href="cloths/styles/core.html">Core</a> (imported)		0
+heading	Emptycloths/styles/core/Empty.html	cloths.html#coreclothsslashstylesslashcoredothtml-imported-emptyclothsslashstylesslashcoreslashemptydothtml	   <a class="reference external" href="cloths/styles/core/Empty.html">Empty</a>		0
 heading	Indentcloths/styles/core/Indent.html	cloths.html#coreclothsslashstylesslashcoredothtml-imported-indentclothsslashstylesslashcoreslashindentdothtml	   <a class="reference external" href="cloths/styles/core/Indent.html">Indent</a>		0
 heading	Joincloths/styles/core/Join.html	cloths.html#coreclothsslashstylesslashcoredothtml-imported-joinclothsslashstylesslashcoreslashjoindothtml	   <a class="reference external" href="cloths/styles/core/Join.html">Join</a>		0
 heading	Margincloths/styles/core/Margin.html	cloths.html#coreclothsslashstylesslashcoredothtml-imported-marginclothsslashstylesslashcoreslashmargindothtml	   <a class="reference external" href="cloths/styles/core/Margin.html">Margin</a>		0
+heading	Multilinecloths/styles/core/Multiline.html	cloths.html#coreclothsslashstylesslashcoredothtml-imported-multilineclothsslashstylesslashcoreslashmultilinedothtml	   <a class="reference external" href="cloths/styles/core/Multiline.html">Multiline</a>		0
 heading	Ordercloths/styles/core/Order.html	cloths.html#coreclothsslashstylesslashcoredothtml-imported-orderclothsslashstylesslashcoreslashorderdothtml	   <a class="reference external" href="cloths/styles/core/Order.html">Order</a>		0
 heading	Prefixcloths/styles/core/Prefix.html	cloths.html#coreclothsslashstylesslashcoredothtml-imported-prefixclothsslashstylesslashcoreslashprefixdothtml	   <a class="reference external" href="cloths/styles/core/Prefix.html">Prefix</a>		0
 heading	Textcloths/styles/core/Text.html	cloths.html#coreclothsslashstylesslashcoredothtml-imported-textclothsslashstylesslashcoreslashtextdothtml	   <a class="reference external" href="cloths/styles/core/Text.html">Text</a>		0

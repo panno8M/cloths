@@ -1,3 +1,91 @@
+## Needle - Cloths' weaving toolkit
+## ################################
+
+## `weave` Macro
+## #############
+##
+## `weave` is a very useful macro to build a cloth.
+##
+## ```
+## weave multiline:
+##   "foo"
+##   "bar"
+##   "baz"
+## ```
+##
+## That is same as:
+##
+## ```
+## let cloth = cloth(multiline)
+## cloth.add "foo"
+## cloth.add "bar"
+## cloth.add "baz"
+## ```
+##
+## If a statement returns `Cloth` (or `string` that has to-Cloth converter), `cloth.add` will added.
+##
+## If that returns non-Cloth type or void, embedded as it is.
+##
+## ```
+## weave multiline:
+##   let foo = "foo"
+##   foo
+##   "bar"
+##   "baz"
+## ```
+##
+## means
+##
+## ```
+## let cloth = cloth(multiline)
+## let foo = "foo"
+## cloth.add foo
+## cloth.add "bar"
+## cloth.add "baz"
+## ```
+##
+## Additionaly, in weave, you can use if, (elif, else,) when, for and while statements. e.g.:
+##
+## ```
+## weave multiline:
+##   if foo:
+##     "bar"
+##     "baz"
+## ```
+##
+## will be expanded to:
+##
+## ```
+## let cloth = cloth multiline
+## if foo:
+##   cloth.weave:
+##     "bar"
+##     "baz"
+## ```
+##
+## And other statements are same. `weave` inserts `cloth.weave` to inner-block.
+##
+## Nested control statement also works.
+##
+## ```
+## weave text:
+##   for s in ["a", "b", "c"]:
+##     &"[{s}]"
+##     for i in 1..3:
+##       if i == 2: continue
+##       s & $i
+## # => [a] a1 a3 [b] b1 b3 [c] c1 c3
+##
+## #[
+## let cloth = cloth text
+## for s in ["a", "b", "c"]:
+##   cloth.add(&"[{s}]")
+##   for i in 1..3:
+##     if i == 2: continue
+##     cloth.add(s & $i)
+## ]#
+## ```
+
 import std/strutils
 import std/sequtils
 import std/macros

@@ -70,3 +70,10 @@ when true
 a1 a2 a3 b1 b2 b3 c1 c2 c3"""
     check $cloth == $cloth
     check $cloth == expect
+
+echo:
+  weave text:
+    for s in ["a", "b", "c"]:
+      for i in 1..3:
+        if i == 2: continue
+        s & $i
