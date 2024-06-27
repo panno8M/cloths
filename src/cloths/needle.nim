@@ -107,8 +107,8 @@ proc cloth*(style: Style; subitems: varargs[Cloth]): Cloth =
 proc `$`*(cloth: Cloth): string =
   cloth.deepcopy.apply.eachline.toseq.join("\n")
 
-func add*(cloth: Cloth; subitems: varargs[Cloth]) =
-  cloth.data.subitems.add @subitems
+func add*(cloth: Cloth; subitem: Cloth) =
+  cloth.data.subitems.add subitem
 
 template add(cloth: Cloth; args: varargs[untyped]): untyped = args
 
@@ -133,6 +133,13 @@ proc weave_impl(instance, body: NimNode; chain: bool): NimNode =
       for branch in stmt:
         branch[^1] = weave.newCall(c, branch[^1])
       result.add stmt
+    of nnkTryStmt:
+      stmt[0] = weave.newCall(c, stmt[0])
+      for i, branch in stmt:
+        if i == 0: continue
+        branch[^1] = weave.newCall(c, branch[^1])
+      result.add stmt
+
     of nnkForStmt, nnkWhileStmt:
       stmt[^1] = weave.newCall(c, stmt[^1])
       result.add stmt

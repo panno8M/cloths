@@ -121,6 +121,19 @@ runnableExamples:
 ##
 ## Same as nested weaving.
 ##
+## `Exception <cloths/styles/exception.html>`_ (import required)
+## =============================================================
+##
+## `Proof <cloths/styles/exception/Proof.html>`_
+## ---------------------------------------------
+##
+## Raise an exception if applied data do not meet specified conditions.
+##
+## `Transact <cloths/styles/exception/Transact.html>`_
+## ---------------------------------------------------
+##
+## Is exception raised while applying, return empty data. Return applied data if not.
+##
 ## `Algorithm <cloths/styles/algorithm.html>`_ (import required)
 ## =============================================================
 ##
@@ -168,5 +181,6 @@ import cloths/styles/controller; export controller
 
 when defined(docgen):
   import cloths/styles/algorithm
+  import cloths/styles/exception
   import cloths/styles/io
   import cloths/styles/markdown

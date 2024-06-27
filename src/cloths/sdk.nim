@@ -41,6 +41,11 @@ proc len*(data: Data): int =
   elif data.isString: 1
   else:
     data.subitems.len
+proc linelen*(data: Data): int =
+  if unlikely(data.isNil): return 0
+  if data.isString: return 1
+  for subcloth in data.subitems:
+    result += linelen subcloth.data
 
 method apply*(style: Style; data: Data): Data {.base.} = (discard)
 

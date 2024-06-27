@@ -10,16 +10,17 @@ nim	constant	cloths/sdk.html#constant	const constant		34
 nim	cloth	cloths/sdk.html#cloth,Data	proc cloth(data: Data): Cloth		35
 nim	cloth	cloths/sdk.html#cloth,string	proc cloth(str: string): Cloth		36
 nim	len	cloths/sdk.html#len,Data	proc len(data: Data): int		39
-nim	apply	cloths/sdk.html#apply.e,Style,Data	method apply(style: Style; data: Data): Data		45
-nim	apply	cloths/sdk.html#apply,Cloth	proc apply(cloth: Cloth): Data		47
-nim	Iterator	cloths/sdk.html#Iterator	object Iterator		51
-nim	newIterator	cloths/sdk.html#newIterator,Data	proc newIterator(data: Data): Iterator		54
-nim	next	cloths/sdk.html#next,Iterator	proc next(iter: var Iterator): ptr string		63
-nim	eachline	cloths/sdk.html#eachline.i,Data	iterator eachline(data: Data): var string		73
-nim	eachpair	cloths/sdk.html#eachpair.i,Data	iterator eachpair(data: var Data): tuple[i_line: int, line: var string]		78
-nim	eachAppliedData	cloths/sdk.html#eachAppliedData.t,Data,,,	template eachAppliedData(data: Data; metatoken, datatoken, body): untyped		87
-nim	whitespace	cloths/sdk.html#whitespace,Natural	proc whitespace(length: Natural): string		110
-nim	styletest	cloths/sdk.html#styletest.m	macro styletest(body)		121
+nim	linelen	cloths/sdk.html#linelen,Data	proc linelen(data: Data): int		44
+nim	apply	cloths/sdk.html#apply.e,Style,Data	method apply(style: Style; data: Data): Data		50
+nim	apply	cloths/sdk.html#apply,Cloth	proc apply(cloth: Cloth): Data		52
+nim	Iterator	cloths/sdk.html#Iterator	object Iterator		56
+nim	newIterator	cloths/sdk.html#newIterator,Data	proc newIterator(data: Data): Iterator		59
+nim	next	cloths/sdk.html#next,Iterator	proc next(iter: var Iterator): ptr string		68
+nim	eachline	cloths/sdk.html#eachline.i,Data	iterator eachline(data: Data): var string		78
+nim	eachpair	cloths/sdk.html#eachpair.i,Data	iterator eachpair(data: var Data): tuple[i_line: int, line: var string]		83
+nim	eachAppliedData	cloths/sdk.html#eachAppliedData.t,Data,,,	template eachAppliedData(data: Data; metatoken, datatoken, body): untyped		92
+nim	whitespace	cloths/sdk.html#whitespace,Natural	proc whitespace(length: Natural): string		115
+nim	styletest	cloths/sdk.html#styletest.m	macro styletest(body)		126
 nimgrp	clothlowlevel	cloths/sdk.html#cloth_lowlevel-procs-all	proc		31
 nimgrp	data	cloths/sdk.html#data-procs-all	proc		28
 nimgrp	cloth	cloths/sdk.html#cloth-procs-all	proc		35

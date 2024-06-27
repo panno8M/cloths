@@ -1,0 +1,4 @@
+nimTitle	Proof	cloths/styles/exception/Proof.html	module cloths/styles/exception/Proof		0
+nim	ClothsProofDefect	cloths/styles/exception/Proof.html#ClothsProofDefect	object ClothsProofDefect		4
+nim	Proof	cloths/styles/exception/Proof.html#Proof	type Proof		6
+nim	apply	cloths/styles/exception/Proof.html#apply.e,Proof,Data	method apply(style: Proof; data: Data): Data		10

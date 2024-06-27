@@ -1,0 +1,4 @@
+nimTitle	Transact	cloths/styles/exception/Transact.html	module cloths/styles/exception/Transact		0
+nim	Transact	cloths/styles/exception/Transact.html#Transact	type Transact		4
+nim	transact	cloths/styles/exception/Transact.html#transact_2	let transact		5
+nim	apply	cloths/styles/exception/Transact.html#apply.e,Transact,Data	method apply(style: Transact; data: Data): Data		7
