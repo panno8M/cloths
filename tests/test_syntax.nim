@@ -31,7 +31,7 @@ pqr"""
 
 
   test"conditional weaving":
-    var idx: int
+    let str = "string"
     let cloth = weave multiline:
       weave text:
         if true:
@@ -40,6 +40,9 @@ pqr"""
         if false:
           "if"
           "false"
+        else:
+          "if"
+          "not false"
       weave text:
         when true:
           "when"
@@ -47,6 +50,9 @@ pqr"""
         when false:
           "when"
           "false"
+        else:
+          "when"
+          "not false"
       weave text:
         for i, ch in ["a", "b", "c"]:
           "("
@@ -54,6 +60,7 @@ pqr"""
           str
           ")"
       weave text:
+        var idx: int
         while idx < 3:
           let i = idx
           $i
@@ -62,12 +69,26 @@ pqr"""
         for ch in ["a", "b", "c"]:
           for i in 1..3:
             ch & $i
+      weave text:
+        for str in ["ofStmt", "elifStmt", "elseStmt"]:
+          case str
+          of "ofStmt":
+            "case"
+            "of stmt"
+          elif str == "elifStmt":
+            "case"
+            "elif stmt"
+          else:
+            "case"
+            "else stmt"
 
-    let expect = """if true
-when true
+    let expect = """
+if true if not false
+when true when not false
 ( 0 : a ) ( 1 : b ) ( 2 : c )
 0 1 2
-a1 a2 a3 b1 b2 b3 c1 c2 c3"""
+a1 a2 a3 b1 b2 b3 c1 c2 c3
+case of stmt case elif stmt case else stmt"""
     check $cloth == $cloth
     check $cloth == expect
 
