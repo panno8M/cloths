@@ -3,8 +3,8 @@ import cloths/sdk
 import std/sequtils
 import std/strutils
 
-type Join* = ref object of Style
-  delim*: string = ""
+type Join* {.requiresInit.} = ref object of Style
+  delim*: string
 
 method apply(style: Join; data: Data): Data =
   if unlikely(data.isNil): return

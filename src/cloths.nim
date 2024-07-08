@@ -15,7 +15,7 @@ runnableExamples:
   echo:
     weave multiline:
       "LIST:"
-      weave Margin(thickness: 1) & indent(2) & orderedList:
+      weave Margin(thickness: 1) & Indent(level: 2) & orderedList:
         "foo"
         "bar"
         "baz"

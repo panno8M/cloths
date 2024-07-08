@@ -1,7 +1,7 @@
 import cloths/sdk
 import cloths/styles/core/Unorder
 
-type CheckBox* = ref object of Style
+type CheckBox* {.requiresInit.} = ref object of Style
   checked*: bool
 let checkbox*: array[bool, CheckBox] = [CheckBox(checked: false), CheckBox(checked: true)]
 

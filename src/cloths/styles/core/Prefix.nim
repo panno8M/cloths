@@ -1,7 +1,7 @@
 import cloths/sdk
 
-type Prefix* = ref object of Style
-  prefix*: string = "# "
+type Prefix* {.requiresInit.} = ref object of Style
+  prefix*: string
 
 method apply(style: Prefix; data: Data): Data =
   if unlikely(data.isNil): return
@@ -19,7 +19,7 @@ styletest:
   import Empty
   suite"Prefix":
     test"simple":
-      let test = weave Prefix():
+      let test = weave Prefix(prefix: "# "):
           "abc"
           "def"
           "ghi"
@@ -31,13 +31,13 @@ styletest:
       check $test == expect
 
     test "empty":
-      let test = cloth Prefix()
+      let test = cloth Prefix(prefix: "# ")
       let expect = ""
       check $test == $test
       check $test == expect
 
     test "inner-empty":
-      let test = weave Prefix():
+      let test = weave Prefix(prefix: "# "):
         cloth empty
         "a"
         cloth empty
@@ -54,11 +54,11 @@ styletest:
       check $test == expect
 
     test "complex":
-      let test = weave Prefix():
+      let test = weave Prefix(prefix: "# "):
         "a"
         weave Prefix(prefix: "- "):
           "b"
-          cloth Prefix()
+          cloth Prefix(prefix: "# ")
           weave Prefix(prefix: "> "):
             "c"
             "d"

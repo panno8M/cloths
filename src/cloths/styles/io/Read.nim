@@ -3,22 +3,15 @@ import cloths/needle
 
 type Read* {.requiresinit.} = ref object of Style
   file*: File
-  prompt*: string
 
-proc read*(file: File; prompt: string = ""): Read = Read(file: file, prompt: prompt)
+proc read*(file: File): Read = Read(file: file)
 
 method apply(style: Read; data: Data): Data =
-  if style.file == stdin:
-    stdout.write style.prompt
-    flushFile stdout
   result = style.file.readAll.clothfy.data
   try:
     style.file.setFilePos(0)
   except IOError:
     discard
-  if style.file == stdin:
-    stdout.write "\n"
-    flushFile stdout
 
 styletest:
   suite"Read":
@@ -30,7 +23,7 @@ styletest:
       check $test == expect
     when isMainModule:
       test"stdin":
-        let test = cloth stdin.read("input(plz write: abc)> ")
+        let test = cloth read stdin
         let expect = "abc"
         check $test == $test
         check $test == expect

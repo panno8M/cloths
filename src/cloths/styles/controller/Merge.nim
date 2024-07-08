@@ -1,6 +1,6 @@
 import cloths/sdk
 
-type Merge* = ref object of Style
+type Merge* {.requiresInit.} = ref object of Style
   a, b: Style
 proc merge*(a, b: Style): Merge = Merge(a: a, b: b)
 template `&`*(a, b: Style): Merge = a.merge b

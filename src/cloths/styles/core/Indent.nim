@@ -1,18 +1,18 @@
 import cloths/sdk
 import Prefix
 
-type Indent* = ref object of Style
-  super: Prefix
-proc indent*(level: Natural): Indent = Indent(super: Prefix(prefix: sdk.whitespace(level)))
-let indent2* = indent(2)
+type Indent* {.requiresInit.} = ref object of Style
+  level*: Natural
+let indent* = Indent(level: 2)
 
-method apply(style: Indent; data: Data): Data = apply(style.super, data)
+method apply(style: Indent; data: Data): Data =
+  apply(Prefix(prefix: sdk.whitespace(style.level)), data)
 
 styletest:
   import cloths/needle
   suite"Indent":
     test"simple":
-      let test = weave indent2:
+      let test = weave indent:
         "a"
         "b"
         "c"

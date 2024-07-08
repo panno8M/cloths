@@ -3,8 +3,8 @@ import cloths/sdk
 from std/strutils import repeat
 
 type OrderEntry* = proc(idx: Positive): string
-type Order* = ref object of Style
-  entry*: OrderEntry = proc(idx: Positive): string = $idx & ". "
+type Order* {.requiresInit.} = ref object of Style
+  entry*: OrderEntry
 
 proc roman*(num: Positive): string =
   const table: array[4, array['0'..'9', string]] = [
@@ -38,11 +38,12 @@ method apply(style: Order; data: Data): Data =
     result.subitems.add cloth subdata
 
 styletest:
+  import std/strformat
   import cloths/needle
   import Empty
   suite"Order":
     test"simple":
-      let test = weave Order():
+      let test = weave orderIdx(&"{idx}. "):
           "abc"
           "def"
           "ghi"
@@ -54,13 +55,13 @@ styletest:
       check $test == expect
 
     test "empty":
-      let test = cloth Order()
+      let test = cloth orderIdx(&"{idx}. ")
       let expect = ""
       check $test == $test
       check $test == expect
 
     test "inner-empty":
-      let test = weave Order():
+      let test = weave orderIdx(&"{idx}. "):
         cloth empty
         "a"
         cloth empty
@@ -77,15 +78,15 @@ styletest:
       check $test == expect
 
     test "complex":
-      let test = weave Order():
+      let test = weave orderIdx(&"{idx}. "):
         "a"
-        weave Order():
+        weave orderIdx(&"{idx}. "):
           "b"
-          cloth Order()
-          weave Order():
+          cloth orderIdx(&"{idx}. ")
+          weave orderIdx(&"{idx}. "):
             "c"
             "d"
-          weave Order():
+          weave orderIdx(&"{idx}. "):
             "e"
             "f"
       let expect = """

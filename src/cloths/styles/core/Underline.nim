@@ -2,8 +2,8 @@ import cloths/sdk
 
 # Underline
 # ---------
-type Underline* = ref object of Style
-  pattern*: string = "-"
+type Underline* {.requiresInit.} = ref object of Style
+  pattern*: string
 
 proc makeline(length: int; pattern: string): string =
   result = newString(length)
@@ -40,7 +40,7 @@ styletest:
   import cloths/needle
   suite"Underline":
     test"simple":
-      let test = weave Underline():
+      let test = weave Underline(pattern: "-"):
         "ab"
         "cde"
         "f"
@@ -55,7 +55,7 @@ f
       check $test == expect
 
     test"inner-multiline":
-      let test = weave Underline():
+      let test = weave Underline(pattern: "-"):
         "ab"
         weave constant:
           "cde"
@@ -70,7 +70,7 @@ f
       check $test == expect
 
     test"nested":
-      let test = weave Underline():
+      let test = weave Underline(pattern: "-"):
         weave Underline(pattern: "-*"):
           "abcdefg"
       let expect = """

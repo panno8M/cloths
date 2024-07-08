@@ -1,6 +1,6 @@
 import cloths/sdk
 
-type Concat* = ref object of Style
+type Concat* {.requiresInit.} = ref object of Style
   a*: Style
 proc concat*(a: Style): Concat = Concat(a: a)
 template `&`*(a: Style): Concat = concat a

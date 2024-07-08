@@ -1,7 +1,7 @@
 import cloths/sdk
 
-type Unorder* = ref object of Style
-  entry*: string = "* "
+type Unorder* {.requiresInit.} = ref object of Style
+  entry*: string
 
 method apply(style: Unorder; data: Data): Data =
   if unlikely(data.isNil): return
@@ -35,13 +35,13 @@ styletest:
       check $test == expect
 
     test "empty":
-      let test = cloth Unorder()
+      let test = cloth Unorder(entry: "* ")
       let expect = ""
       check $test == $test
       check $test == expect
 
     test "inner-empty":
-      let test = weave Unorder():
+      let test = weave Unorder(entry: "* "):
         cloth empty
         "a"
         cloth empty
@@ -58,15 +58,15 @@ styletest:
       check $test == expect
 
     test "complex":
-      let test = weave Unorder():
+      let test = weave Unorder(entry: "* "):
         "a"
         weave Unorder(entry: "- "):
           "b"
           cloth empty
-          weave Unorder():
+          weave Unorder(entry: "* "):
             "c"
             "d"
-          weave Unorder():
+          weave Unorder(entry: "* "):
             "e"
             "f"
       let expect = """

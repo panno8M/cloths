@@ -5,7 +5,7 @@ import std/unittest
 suite"syntax":
   test"weaving":
 
-    let cloth = weave Margin():
+    let cloth = weave margin:
       "abc"
 
     cloth.weave:
@@ -32,7 +32,6 @@ pqr"""
 
 
   test"conditional weaving":
-    let str = "string"
     let cloth = weave multiline:
       weave text:
         if true:
@@ -92,10 +91,3 @@ a1 a2 a3 b1 b2 b3 c1 c2 c3
 case of stmt case elif stmt case else stmt"""
     check $cloth == $cloth
     check $cloth == expect
-
-echo:
-  weave text:
-    for s in ["a", "b", "c"]:
-      for i in 1..3:
-        if i == 2: continue
-        s & $i

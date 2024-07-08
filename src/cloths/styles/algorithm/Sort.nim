@@ -12,7 +12,7 @@ proc cmp*(a, b: Cloth): int =
     result = cmp(ap[], bp[])
 
 
-type Sort* = ref object of Style
+type Sort* {.requiresInit.} = ref object of Style
   cmp*: proc(a, b: Cloth): int = cmp
 
 let sort* = Sort(cmp: cmp)
