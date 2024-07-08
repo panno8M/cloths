@@ -1,6 +1,6 @@
 # Package
 
-version       = "1.4.0"
+version       = "1.4.1"
 author        = "la .panon."
 description   = "Cloths provides the way to process and structure string easily."
 license       = "MIT"
