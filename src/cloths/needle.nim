@@ -129,7 +129,7 @@ proc weave_impl(instance, body: NimNode; chain: bool): NimNode =
     let `c`: Cloth = `instance`
   for stmt in body:
     case stmt.kind
-    of nnkIfStmt, nnkWhenStmt:
+    of nnkIfStmt, nnkWhenStmt, nnkCaseStmt:
       for branch in stmt:
         branch[^1] = weave.newCall(c, branch[^1])
       result.add stmt
