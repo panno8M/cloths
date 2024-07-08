@@ -46,7 +46,8 @@ styletest:
           "abc"
           "def"
           "ghi"
-      let expect = """1. abc
+      let expect = """
+1. abc
 2. def
 3. ghi"""
       check $test == $test
@@ -68,7 +69,8 @@ styletest:
         "c"
         cloth empty
 
-      let expect = """1. a
+      let expect = """
+1. a
 2. b
 3. c"""
       check $test == $test
@@ -86,7 +88,8 @@ styletest:
           weave Order():
             "e"
             "f"
-      let expect = """1. a
+      let expect = """
+1. a
 2. 1. b
    2. 1. c
       2. d

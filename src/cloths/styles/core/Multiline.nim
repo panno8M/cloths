@@ -20,7 +20,8 @@ styletest:
         "abc"
         "def"
         "ghi"
-      let expect = """abc
+      let expect = """
+abc
 def
 ghi"""
       check $test == $test
@@ -42,7 +43,8 @@ ghi"""
         weave constant:
           "d"
           "e"
-      let expect = """a
+      let expect = """
+a
 b
 c
 d

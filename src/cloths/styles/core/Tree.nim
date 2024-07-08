@@ -59,7 +59,8 @@ styletest:
         "a"
         "b"
         "c"
-      let expect = """├─ a
+      let expect = """
+├─ a
 ├─ b
 └─ c"""
       check $test == $test
@@ -72,7 +73,8 @@ styletest:
           "b"
           "c"
         "d"
-      let expect = """├─ a
+      let expect = """
+├─ a
 ├─ b
 │  c
 └─ d"""
@@ -84,7 +86,8 @@ styletest:
         "a"
         cloth empty
         "b"
-      let expect = """├─ a
+      let expect = """
+├─ a
 └─ b"""
       check $test == $test
       check $test == expect
@@ -102,7 +105,8 @@ styletest:
           weave Tree():
             "f"
             "g"
-      let expect = """├─ a
+      let expect = """
+├─ a
 ├─ b
 │  ├─ c
 │  └─ d

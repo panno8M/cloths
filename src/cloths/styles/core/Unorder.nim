@@ -27,7 +27,8 @@ styletest:
           "abc"
           "def"
           "ghi"
-      let expect = """* abc
+      let expect = """
+* abc
 * def
 * ghi"""
       check $test == $test
@@ -49,7 +50,8 @@ styletest:
         "c"
         cloth empty
 
-      let expect = """* a
+      let expect = """
+* a
 * b
 * c"""
       check $test == $test
@@ -67,7 +69,8 @@ styletest:
           weave Unorder():
             "e"
             "f"
-      let expect = """* a
+      let expect = """
+* a
 * - b
   - * c
     * d

@@ -16,7 +16,8 @@ styletest:
         "a"
         "b"
         "c"
-      let expect = """  a
+      let expect = """
+  a
   b
   c"""
       check $test == $test

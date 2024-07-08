@@ -19,7 +19,8 @@ styletest:
           "False"
         weave checkbox[true]:
           "True"
-      let expect = """[ ] False
+      let expect = """
+[ ] False
 [x] True"""
       check $test == $test
       check $test == expect

@@ -17,7 +17,8 @@ suite"syntax":
       "mno"
       "pqr"
 
-    let expect = """abc
+    let expect = """
+abc
 
 def
 

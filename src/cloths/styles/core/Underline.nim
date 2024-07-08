@@ -44,7 +44,8 @@ styletest:
         "ab"
         "cde"
         "f"
-      let expect = """ab
+      let expect = """
+ab
 --
 cde
 ---
@@ -59,7 +60,8 @@ f
         weave constant:
           "cde"
           "f"
-      let expect = """ab
+      let expect = """
+ab
 --
 cde
 f
@@ -71,7 +73,8 @@ f
       let test = weave Underline():
         weave Underline(pattern: "-*"):
           "abcdefg"
-      let expect = """abcdefg
+      let expect = """
+abcdefg
 -*-*-*-
 -------"""
       check $test == $test

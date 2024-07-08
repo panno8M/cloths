@@ -32,7 +32,8 @@ styletest:
         "aaa"
         "ddd"
         "ccc"
-      let expect = """aaa
+      let expect = """
+aaa
 bbb
 ccc
 ddd"""
@@ -51,7 +52,8 @@ ddd"""
           "111"
         weave constant:
           "aaa"
-      let expect = """aaa
+      let expect = """
+aaa
 111
 aaa
 bbb

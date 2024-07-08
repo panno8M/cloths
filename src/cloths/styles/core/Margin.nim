@@ -40,7 +40,8 @@ styletest:
         "abc"
         "def"
         "ghi"
-      let expect = """abc
+      let expect = """
+abc
 
 def
 
@@ -55,7 +56,8 @@ ghi"""
           "def"
           "ghi"
         "jkl"
-      let expect = """abc
+      let expect = """
+abc
 
 def
 ghi
@@ -69,7 +71,8 @@ jkl"""
         "abc"
         cloth empty
         "def"
-      let expect = """abc
+      let expect = """
+abc
 
 def"""
       check $test == $test
@@ -80,7 +83,8 @@ def"""
         "abc"
         "def"
         "ghi"
-      let expect = """abc
+      let expect = """
+abc
 
 
 def
@@ -95,7 +99,8 @@ ghi"""
         "abc"
         "def"
         "ghi"
-      let expect = """abc
+      let expect = """
+abc
 
 def
 
