@@ -6,3 +6,5 @@ nim	tbtNone	cloths/styles/core/Tree.html#tbtNone	TreeBranchToken.tbtNone		4
 nim	TreeBranchToken	cloths/styles/core/Tree.html#TreeBranchToken	enum TreeBranchToken		4
 nim	TreeBranch	cloths/styles/core/Tree.html#TreeBranch	type TreeBranch		9
 nim	Tree	cloths/styles/core/Tree.html#Tree	type Tree		10
+nim	treeBranch	cloths/styles/core/Tree.html#treeBranch,TreeBranchToken	proc treeBranch(token: TreeBranchToken): string		13
+nim	tree	cloths/styles/core/Tree.html#tree_2	let tree		19
